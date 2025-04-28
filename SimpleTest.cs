@@ -25,7 +25,15 @@ namespace TestingToolshopDemoWithSelenium
         [OneTimeTearDown]
         public void TearDown()
         {
-            driver.Quit();
+            driver.Dispose();
+        }
+
+        [Test]
+        public void CheckTitle()
+        {
+            driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
+            string pageTitle = driver.Title;
+            Assert.That(pageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
         }
     }
 }
