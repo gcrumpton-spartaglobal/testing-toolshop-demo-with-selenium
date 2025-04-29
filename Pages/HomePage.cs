@@ -12,5 +12,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         {
             this.driver = driver;
         }
+
+        public void GoToHomePage()
+        {
+            driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
+        }
     }
 }
