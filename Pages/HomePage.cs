@@ -17,5 +17,11 @@ namespace TestingToolshopDemoWithSelenium.Pages
         {
             driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
         }
+
+        public void Search(string searchText)
+        {
+            searchBox.SendKeys(searchText);
+            searchBox.SendKeys(Keys.Enter);
+        }
     }
 }
