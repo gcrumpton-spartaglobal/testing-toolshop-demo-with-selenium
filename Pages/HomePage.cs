@@ -6,6 +6,8 @@ namespace TestingToolshopDemoWithSelenium.Pages
     {
         private readonly IWebDriver driver;
 
+        IWebElement searchBox => driver.FindElement(By.Id("search-query"));
+
         public HomePage(IWebDriver driver)
         {
             this.driver = driver;
