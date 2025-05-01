@@ -4,18 +4,18 @@ namespace TestingToolshopDemoWithSelenium.Pages
 {
     public class HomePage
     {
-        private readonly IWebDriver driver;
+        private readonly IWebDriver _driver;
 
-        IWebElement searchBox => driver.FindElement(By.Id("search-query"));
+        IWebElement searchBox => _driver.FindElement(By.Id("search-query"));
 
         public HomePage(IWebDriver driver)
         {
-            this.driver = driver;
+            this._driver = driver;
         }
 
         public void GoToHomePage()
         {
-            driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
+            _driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
         }
 
         public void Search(string searchText)
