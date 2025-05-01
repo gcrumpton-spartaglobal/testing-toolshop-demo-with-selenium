@@ -7,7 +7,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         private readonly IWebDriver _driver;
         private const string BaseUrl = "https://practicesoftwaretesting.com/";
 
-        IWebElement searchBox => _driver.FindElement(By.Id("search-query"));
+        IWebElement SearchBox => _driver.FindElement(By.Id("search-query"));
 
         public HomePage(IWebDriver driver)
         {
@@ -21,8 +21,8 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         public void Search(string searchText)
         {
-            searchBox.SendKeys(searchText);
-            searchBox.SendKeys(Keys.Enter);
+            SearchBox.SendKeys(searchText);
+            SearchBox.SendKeys(Keys.Enter);
         }
     }
 }
