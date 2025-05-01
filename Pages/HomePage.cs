@@ -5,6 +5,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
     public class HomePage
     {
         private readonly IWebDriver _driver;
+        private const string BaseUrl = "https://practicesoftwaretesting.com/";
 
         IWebElement searchBox => _driver.FindElement(By.Id("search-query"));
 
@@ -15,7 +16,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         public void GoToHomePage()
         {
-            _driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
+            _driver.Navigate().GoToUrl(BaseUrl);
         }
 
         public void Search(string searchText)
