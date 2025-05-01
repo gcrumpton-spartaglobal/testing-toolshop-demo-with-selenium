@@ -10,7 +10,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         public HomePage(IWebDriver driver)
         {
-            this._driver = driver;
+            _driver = driver;
         }
 
         public void GoToHomePage()
