@@ -41,30 +41,17 @@ namespace TestingToolshopDemoWithSelenium
         public void SearchForPliersContainsFourResults()
         {
             var homePage = new HomePage(_driver);
-            
+
             homePage.GoToHomePage();
             homePage.Search("Pliers");
 
             // Wait for the search results to load
             Thread.Sleep(5000);
 
-            var cardTitles = CardTitles();
+            // Obtain the card titles after the search
+            var cardTitles = homePage.CardTitles();
 
             Assert.That(cardTitles, Has.Count.EqualTo(4));
-        }
-
-        private static List<string> CardTitles()
-        {
-            var cards = _driver.FindElements(By.ClassName("card"));
-            List<string> cardTitles = new List<string>();
-
-            foreach (var card in cards)
-            {
-                var titleElement = card.FindElement(By.ClassName("card-title"));
-                cardTitles.Add(titleElement.Text);
-            }
-
-            return cardTitles;
         }
     }
 }
