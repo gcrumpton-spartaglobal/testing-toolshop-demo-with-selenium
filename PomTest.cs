@@ -55,7 +55,6 @@ namespace TestingToolshopDemoWithSelenium
             {
                 var titleElement = card.FindElement(By.ClassName("card-title"));
                 cardTitles.Add(titleElement.Text);
-                Console.WriteLine(titleElement.Text);
             }
 
             Assert.That(cardTitles, Has.Count.EqualTo(4));
