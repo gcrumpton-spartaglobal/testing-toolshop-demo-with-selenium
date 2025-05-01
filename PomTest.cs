@@ -48,6 +48,13 @@ namespace TestingToolshopDemoWithSelenium
             // Wait for the search results to load
             Thread.Sleep(5000);
 
+            var cardTitles = CardTitles();
+
+            Assert.That(cardTitles, Has.Count.EqualTo(4));
+        }
+
+        private static List<string> CardTitles()
+        {
             var cards = _driver.FindElements(By.ClassName("card"));
             List<string> cardTitles = new List<string>();
 
@@ -57,7 +64,7 @@ namespace TestingToolshopDemoWithSelenium
                 cardTitles.Add(titleElement.Text);
             }
 
-            Assert.That(cardTitles, Has.Count.EqualTo(4));
+            return cardTitles;
         }
     }
 }
