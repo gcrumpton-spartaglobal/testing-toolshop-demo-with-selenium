@@ -8,6 +8,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         private const string BaseUrl = "https://practicesoftwaretesting.com/";
 
         IWebElement SearchBox => _driver.FindElement(By.Id("search-query"));
+        public string PageTitle => _driver.Title;
 
         public HomePage(IWebDriver driver)
         {

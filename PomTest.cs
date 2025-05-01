@@ -31,7 +31,8 @@ namespace TestingToolshopDemoWithSelenium
 
             homePage.GoToHomePage();
 
-            string pageTitle = _driver.Title;
+            string pageTitle = homePage.PageTitle;
+
             Assert.That(pageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
         }
     }
