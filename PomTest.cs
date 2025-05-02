@@ -13,8 +13,11 @@ namespace TestingToolshopDemoWithSelenium
         [OneTimeSetUp]
         public void SetUp()
         {
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
+
             new DriverManager().SetUpDriver(new ChromeConfig());
-            _driver = new ChromeDriver();
+            _driver = new ChromeDriver(chromeOptions);
             _driver.Manage().Window.Maximize();
         }
 
