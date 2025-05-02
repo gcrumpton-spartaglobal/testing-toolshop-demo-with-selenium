@@ -2,22 +2,11 @@
 
 namespace TestingToolshopDemoWithSelenium.Pages
 {
-    public class HomePage
+    public class HomePage(IWebDriver driver) : WebPage(driver)
     {
-        private readonly IWebDriver _driver;
-        private const string BaseUrl = "https://practicesoftwaretesting.com/";
-
-        IWebElement SearchBox => _driver.FindElement(By.Id("search-query"));
-        public string PageTitle => _driver.Title;
-
-        public HomePage(IWebDriver driver)
-        {
-            _driver = driver;
-        }
-
         public void GoToHomePage()
         {
-            _driver.Navigate().GoToUrl(BaseUrl);
+            driver.Navigate().GoToUrl(BaseUrl);
         }
 
         public void Search(string searchText)
@@ -28,7 +17,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         public List<string> CardTitles()
         {
-            var cards = _driver.FindElements(By.ClassName("card"));
+            var cards = driver.FindElements(By.ClassName("card"));
             List<string> cardTitles = new List<string>();
 
             foreach (var card in cards)
