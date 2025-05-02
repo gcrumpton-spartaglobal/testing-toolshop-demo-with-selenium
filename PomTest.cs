@@ -53,5 +53,17 @@ namespace TestingToolshopDemoWithSelenium
 
             Assert.That(cardTitles, Has.Count.EqualTo(4));
         }
+
+        [Test]
+        public void CheckSignInPageHasLoginText()
+        {
+            var signInPage = new SignInPage(_driver);
+
+            signInPage.GoToSignInPage();
+
+            string loginText = signInPage.LoginText.Text;
+
+            Assert.That(loginText, Is.EqualTo("Login"));
+        }
     }
 }
