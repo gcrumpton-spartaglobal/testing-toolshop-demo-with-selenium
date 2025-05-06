@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 
 namespace TestingToolshopDemoWithSelenium
 {
@@ -15,7 +13,6 @@ namespace TestingToolshopDemoWithSelenium
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
 
-            new DriverManager().SetUpDriver(new ChromeConfig());
             driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
         }
