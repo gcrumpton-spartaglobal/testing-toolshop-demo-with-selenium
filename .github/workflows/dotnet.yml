@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "dev", "fix/session-not-created-github-workflows", "fix/session-not-created-github-workflows-remove-webdrivermanager" ]
+    branches: [ "dev", "fix/web-page-not-loading-in-time" ]
   pull_request:
-    branches: [ "dev", "fix/session-not-created-github-workflows", "fix/session-not-created-github-workflows-remove-webdrivermanager" ]
+    branches: [ "dev", "fix/web-page-not-loading-in-time" ]
 
 jobs:
   build:
