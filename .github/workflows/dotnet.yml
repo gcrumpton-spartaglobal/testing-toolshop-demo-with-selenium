@@ -13,9 +13,9 @@ jobs:
  build:  
 
    runs-on: ubuntu-latest  
-   container:  
-     image: mcr.microsoft.com/dotnet/sdk:8.0  
-     options: --user root  
+   # container:  
+   #   image: mcr.microsoft.com/dotnet/sdk:8.0  
+   #   options: --user root  
    steps:  
    - uses: actions/checkout@v4  
    # - name: Set up Docker  
