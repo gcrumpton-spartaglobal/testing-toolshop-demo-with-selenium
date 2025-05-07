@@ -21,7 +21,7 @@ jobs:
       with:
         version: latest
     - name: Start containers
-      run: docker-compose up -d
+      run: docker compose up -d
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
