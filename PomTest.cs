@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Chrome;
 using TestingToolshopDemoWithSelenium.Pages;
 
@@ -7,14 +8,17 @@ namespace TestingToolshopDemoWithSelenium
     public class PomTest
     {
         private static IWebDriver _driver;
+        protected Uri GridUrl;
 
         [OneTimeSetUp]
         public void SetUp()
         {
+            GridUrl = new Uri("http://localhost:4444");
+
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
 
-            _driver = new ChromeDriver(chromeOptions);
+            _driver = new RemoteWebDriver(GridUrl, chromeOptions);
             _driver.Manage().Window.Maximize();
         }
 
