@@ -20,6 +20,9 @@ namespace TestingToolshopDemoWithSelenium
 
             _driver = new RemoteWebDriver(GridUrl, chromeOptions);
             _driver.Manage().Window.Maximize();
+
+            // Set implicit wait
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
         }
 
         [OneTimeTearDown]
