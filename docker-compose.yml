@@ -42,3 +42,13 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+
+  dotnet-selenium-tests:
+    build:
+      context: . # Build from the current directory where the Dockerfile is located
+      dockerfile: Dockerfile # Specify the Dockerfile name
+    depends_on:
+      - selenium-hub
+    environment:
+      SELENIUM_HUB_URL: http://selenium-hub:4444/wd/hub # The URL for your tests to connect to
+    command: dotnet test
