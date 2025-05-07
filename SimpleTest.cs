@@ -15,6 +15,9 @@ namespace TestingToolshopDemoWithSelenium
 
             driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
+
+            // Set implicit wait
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
         }
 
         [OneTimeTearDown]
