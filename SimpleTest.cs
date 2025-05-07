@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Chrome;
 
 namespace TestingToolshopDemoWithSelenium
@@ -6,14 +7,17 @@ namespace TestingToolshopDemoWithSelenium
     public class SimpleTest
     {
         private static IWebDriver driver;
+        protected Uri GridUrl;
 
         [OneTimeSetUp]
         public void SetUp()
         {
+            GridUrl = new Uri("http://localhost:4444");
+
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
 
-            driver = new ChromeDriver(chromeOptions);
+            driver = new RemoteWebDriver(GridUrl, chromeOptions);
             driver.Manage().Window.Maximize();
 
             // Set implicit wait
