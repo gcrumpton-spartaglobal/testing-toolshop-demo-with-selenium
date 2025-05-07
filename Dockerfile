@@ -23,8 +23,5 @@ WORKDIR /app
 # Copy the published application from the build stage
 COPY --from=build /app/publish .
 
-# Run tests
-RUN dotnet test "testing-toolshop-demo-with-selenium.csproj"
-
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "testing-toolshop-demo-with-selenium.dll"]
+ENTRYPOINT ["dotnet", "test"]
