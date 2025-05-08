@@ -5,9 +5,9 @@ name: .NET
 
 on:  
  push:  
-   branches: [ "dev", "feature/add-docker-containerisation" ]  
+   branches: [ "dev", "fix/web-page-not-loading-in-time" ]  
  pull_request:  
-   branches: [ "dev", "feature/add-docker-containerisation" ]  
+   branches: [ "dev", "fix/web-page-not-loading-in-time" ]  
 
 jobs:  
  build:  
