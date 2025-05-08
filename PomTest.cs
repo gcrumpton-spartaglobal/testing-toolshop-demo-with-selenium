@@ -13,7 +13,7 @@ namespace TestingToolshopDemoWithSelenium
         [OneTimeSetUp]
         public void SetUp()
         {
-            GridUrl = new Uri("http://localhost:4444");
+            GridUrl = new Uri("http://localhost:4444/wd/hub");
 
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
