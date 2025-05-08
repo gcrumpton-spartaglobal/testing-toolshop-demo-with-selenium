@@ -12,6 +12,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
+RUN dotnet test -c Release
 RUN dotnet publish -c Release -o /app/publish
 
 # Use a smaller runtime image
@@ -24,4 +25,4 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Set the entry point for the application
-ENTRYPOINT ["dotnet", "test"]
+ENTRYPOINT ["dotnet", "testing-toolshop-demo-with-selenium.dll"]
