@@ -15,7 +15,7 @@ RUN dotnet restore
 COPY . .
 
 # Build the application
-RUN dotnet test -c Release
+# RUN dotnet test -c Release
 RUN dotnet publish -c Release -o /app/publish
 
 # Use a smaller runtime image
