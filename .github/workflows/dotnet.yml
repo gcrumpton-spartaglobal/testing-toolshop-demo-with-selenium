@@ -25,7 +25,17 @@ jobs:
      with:  
        version: latest  
    - name: Start containers  
-     run: docker compose up -d  
+     run: docker compose up -d
+   - name: Wait for Selenium Grid to be ready  
+     run: |  
+       for i in {1..30}; do  
+         if curl -s http://localhost:4444/wd/hub/status | grep -q '"ready":true'; then  
+           echo "Selenium Grid is ready!"  
+           break  
+         fi  
+         echo "Waiting for Selenium Grid to be ready..."  
+         sleep 5  
+       done
    - name: Setup .NET  
      uses: actions/setup-dotnet@v4  
      with:  
