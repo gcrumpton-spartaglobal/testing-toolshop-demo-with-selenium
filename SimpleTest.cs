@@ -18,6 +18,8 @@ namespace TestingToolshopDemoWithSelenium
 
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--headless");
+            chromeOptions.AddArgument("--no-sandbox");
+            chromeOptions.AddArgument("--disable-gpu");
 
             driver = new RemoteWebDriver(GridUrl, chromeOptions);
             driver.Manage().Window.Maximize();
