@@ -1,6 +1,9 @@
 # Use a base image with .NET 8 SDK
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
+# Expose the port for Selenium
+EXPOSE 4444
+
 # Set the working directory
 WORKDIR /app
 
