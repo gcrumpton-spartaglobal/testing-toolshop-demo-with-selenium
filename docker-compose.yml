@@ -42,6 +42,8 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # This allows the containers to access the host machine
 
   dotnet-selenium-tests:
     build:
