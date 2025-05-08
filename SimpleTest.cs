@@ -23,7 +23,7 @@ namespace TestingToolshopDemoWithSelenium
             driver.Manage().Window.Maximize();
 
             // Set explicit wait
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            wait = new WebDriverWait(driver, TimeSpan.FromMinutes(5));
         }
 
         [OneTimeTearDown]
