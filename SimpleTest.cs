@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace TestingToolshopDemoWithSelenium
 {
@@ -8,6 +9,7 @@ namespace TestingToolshopDemoWithSelenium
     {
         private static IWebDriver driver;
         protected Uri GridUrl;
+        private WebDriverWait wait;
 
         [OneTimeSetUp]
         public void SetUp()
@@ -20,8 +22,8 @@ namespace TestingToolshopDemoWithSelenium
             driver = new RemoteWebDriver(GridUrl, chromeOptions);
             driver.Manage().Window.Maximize();
 
-            // Set implicit wait
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
+            // Set explicit wait
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
 
         [OneTimeTearDown]
@@ -34,7 +36,12 @@ namespace TestingToolshopDemoWithSelenium
         public void CheckTitle()
         {
             driver.Navigate().GoToUrl("https://practicesoftwaretesting.com/");
+
+            // Wait for the page to load
+            wait.Until(d => d.Title.Contains("Practice Software Testing"));
+
             string pageTitle = driver.Title;
+
             Assert.That(pageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
         }
     }
