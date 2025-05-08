@@ -2,6 +2,7 @@ version: '2'
 services:
   chrome:
     image: selenium/node-chrome
+    network_mode: host
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -14,6 +15,7 @@ services:
 
   firefox:
     image: selenium/node-firefox
+    network_mode: host
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -26,6 +28,7 @@ services:
 
   edge:
     image: selenium/node-edge
+    network_mode: host
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -38,12 +41,11 @@ services:
 
   selenium-hub:
     image: selenium/hub
+    network_mode: host
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
-    extra_hosts:
-      - "host.docker.internal:host-gateway" # This allows the containers to access the host machine
 
   dotnet-selenium-tests:
     build:
