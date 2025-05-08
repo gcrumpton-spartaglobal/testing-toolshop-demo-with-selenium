@@ -13,6 +13,8 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6900:5900"
+    networks:
+      - selenium
 
   firefox:
     image: selenium/node-firefox
@@ -27,6 +29,8 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6902:5900"
+    networks:
+      - selenium
 
   edge:
     image: selenium/node-edge
@@ -41,6 +45,8 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6903:5900"
+    networks:
+      - selenium
 
   selenium-hub:
     image: selenium/hub
@@ -50,8 +56,12 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+    networks:
+      - selenium
 
   dotnet-selenium-tests:
+    networks:
+      - selenium
     extra_hosts:
       - "host.docker.internal:host-gateway"
     build:
@@ -62,3 +72,6 @@ services:
     environment:
       SELENIUM_HUB_URL: http://selenium-hub:4444/wd/hub # The URL for your tests to connect to
     command: dotnet test
+networks:
+  selenium:
+    external: false
