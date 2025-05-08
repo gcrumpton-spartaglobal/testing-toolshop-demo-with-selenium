@@ -2,8 +2,6 @@ version: '2'
 services:
   chrome:
     image: selenium/node-chrome
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -13,13 +11,9 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6900:5900"
-    networks:
-      - selenium
 
   firefox:
     image: selenium/node-firefox
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -29,13 +23,9 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6902:5900"
-    networks:
-      - selenium
 
   edge:
     image: selenium/node-edge
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -45,33 +35,10 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "6903:5900"
-    networks:
-      - selenium
 
   selenium-hub:
     image: selenium/hub
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
-    networks:
-      - selenium
-
-  dotnet-selenium-tests:
-    networks:
-      - selenium
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    build:
-      context: . # Build from the current directory where the Dockerfile is located
-      dockerfile: Dockerfile # Specify the Dockerfile name
-    depends_on:
-      - selenium-hub
-    environment:
-      SELENIUM_HUB_URL: http://selenium-hub:4444/wd/hub # The URL for your tests to connect to
-    command: dotnet test
-networks:
-  selenium:
-    external: false
