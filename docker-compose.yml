@@ -2,7 +2,8 @@ version: '2'
 services:
   chrome:
     image: selenium/node-chrome
-    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -15,7 +16,8 @@ services:
 
   firefox:
     image: selenium/node-firefox
-    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -28,7 +30,8 @@ services:
 
   edge:
     image: selenium/node-edge
-    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -41,13 +44,16 @@ services:
 
   selenium-hub:
     image: selenium/hub
-    network_mode: host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
 
   dotnet-selenium-tests:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     build:
       context: . # Build from the current directory where the Dockerfile is located
       dockerfile: Dockerfile # Specify the Dockerfile name
