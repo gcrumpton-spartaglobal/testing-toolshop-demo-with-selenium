@@ -10,7 +10,7 @@ on:
    branches: [ "dev", "feature/refactor-workflow" ]  
 
 jobs:  
- build:  
+ set-up-containers:  
    runs-on: self-hosted  
 
    steps:  
@@ -24,19 +24,51 @@ jobs:
    - name: Start containers  
      run: docker compose up -d  
 
+ set-up-dotnet:
+   runs-on: self-hosted
+
+   needs: set-up-containers
+
+   steps:
+   - uses: actions/checkout@v4
+
    - name: Setup .NET  
      uses: actions/setup-dotnet@v4  
      with:  
        dotnet-version: 8.0.x  
 
+ restore-dependencies:  
+   runs-on: self-hosted
+
+   needs: set-up-dotnet
+
+   steps:
+   - uses: actions/checkout@v4
+
    - name: Restore dependencies  
      run: dotnet restore  
+
+ build-and-test:
+   runs-on: self-hosted
+
+   needs: restore-dependencies
+
+   steps:
+   - uses: actions/checkout@v4
 
    - name: Build  
      run: dotnet build --no-restore  
 
    - name: Test  
      run: dotnet test --no-build --verbosity normal  
+
+ stop-containers:
+   runs-on: self-hosted
+
+   needs: build-and-test
+
+   steps:
+   - uses: actions/checkout@v4
 
    - name: Stop containers  
      if: always()  
