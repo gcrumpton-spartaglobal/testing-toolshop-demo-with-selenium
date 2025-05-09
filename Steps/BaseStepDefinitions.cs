@@ -14,6 +14,8 @@ namespace TestingToolshopDemoWithSelenium.Steps
         private static IWebDriver _driver;
         protected Uri GridUrl;
 
+        public static IWebDriver Driver => _driver;
+
         [OneTimeSetUp]
         public void SetUp()
         {
