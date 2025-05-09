@@ -5,9 +5,9 @@ name: .NET
 
 on:  
  push:  
-   branches: [ "dev", "fix/web-page-not-loading-in-time" ]  
+   branches: [ "dev" ]  
  pull_request:  
-   branches: [ "dev", "fix/web-page-not-loading-in-time" ]  
+   branches: [ "dev" ]  
 
 jobs:  
  build:  
