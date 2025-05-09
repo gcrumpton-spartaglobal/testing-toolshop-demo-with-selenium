@@ -37,9 +37,9 @@ namespace TestingToolshopDemoWithSelenium.Steps
         }
 
         [Then("the title should be {string}")]
-        public void ThenTheTitleShouldBe(string p0)
+        public void ThenTheTitleShouldBe(string title)
         {
-            Assert.That(PageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
+            Assert.That(PageTitle, Is.EqualTo(title));
         }
     }
 }
