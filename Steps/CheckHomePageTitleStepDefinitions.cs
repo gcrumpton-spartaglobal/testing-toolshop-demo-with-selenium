@@ -25,7 +25,7 @@ namespace TestingToolshopDemoWithSelenium.Steps
         [When("I check the title")]
         public void WhenICheckTheTitle()
         {
-            PageTitle = NavigationStepDefinitions.HomePage.PageTitle;
+            PageTitle = Page.HomePage.PageTitle;
         }
 
         [Then("the title should be {string}")]
