@@ -40,7 +40,7 @@ jobs:
  build-and-test:
    runs-on: self-hosted
 
-   needs: restore-dependencies
+   needs: set-up-dotnet
 
    steps:
    - uses: actions/checkout@v4
