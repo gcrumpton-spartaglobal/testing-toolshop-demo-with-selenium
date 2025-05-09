@@ -8,6 +8,7 @@ namespace TestingToolshopDemoWithSelenium.Steps
     public class CheckHomePageTitleStepDefinitions : BaseStepDefinitions
     {
         public HomePage Page { get; set; }
+        public string PageTitle { get; set; }
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -32,13 +33,13 @@ namespace TestingToolshopDemoWithSelenium.Steps
         [When("I check the title")]
         public void WhenICheckTheTitle()
         {
-            string pageTitle = Page.PageTitle;
+            PageTitle = Page.PageTitle;
         }
 
         [Then("the title should be {string}")]
         public void ThenTheTitleShouldBe(string p0)
         {
-            throw new PendingStepException();
+            Assert.That(PageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
         }
     }
 }
