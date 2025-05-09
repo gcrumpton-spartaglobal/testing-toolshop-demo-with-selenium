@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestingToolshopDemoWithSelenium.Steps.Navigation
 {
-    public class NavigationStepDefinitions
+    public class NavigationStepDefinitions : BaseStepDefinitions
     {
     }
 }
