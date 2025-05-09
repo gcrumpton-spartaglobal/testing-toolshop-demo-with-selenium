@@ -5,9 +5,9 @@ name: .NET
 
 on:  
  push:  
-   branches: [ "dev" ]  
+   branches: [ "dev", "feature/set-up-reqnroll" ]  
  pull_request:  
-   branches: [ "dev" ]  
+   branches: [ "dev", "feature/set-up-reqnroll" ]  
 
 jobs:  
  set-up-containers:  
