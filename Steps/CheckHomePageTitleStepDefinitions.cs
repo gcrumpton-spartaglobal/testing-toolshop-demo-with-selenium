@@ -32,7 +32,7 @@ namespace TestingToolshopDemoWithSelenium.Steps
         [When("I check the title")]
         public void WhenICheckTheTitle()
         {
-            throw new PendingStepException();
+            string pageTitle = Page.PageTitle;
         }
 
         [Then("the title should be {string}")]
