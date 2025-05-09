@@ -5,9 +5,9 @@ name: .NET
 
 on:  
  push:  
-   branches: [ "dev", "feature/move-common-step-defs-to-one-file" ]  
+   branches: [ "dev" ]  
  pull_request:  
-   branches: [ "dev", "feature/move-common-step-defs-to-one-file" ]  
+   branches: [ "dev" ]  
 
 jobs:  
  set-up-containers:  
