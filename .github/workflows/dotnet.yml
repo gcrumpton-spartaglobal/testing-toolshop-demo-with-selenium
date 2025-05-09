@@ -37,17 +37,6 @@ jobs:
      with:  
        dotnet-version: 8.0.x  
 
- restore-dependencies:  
-   runs-on: self-hosted
-
-   needs: set-up-dotnet
-
-   steps:
-   - uses: actions/checkout@v4
-
-   - name: Restore dependencies  
-     run: dotnet restore  
-
  build-and-test:
    runs-on: self-hosted
 
@@ -55,6 +44,9 @@ jobs:
 
    steps:
    - uses: actions/checkout@v4
+     
+   - name: Restore dependencies  
+     run: dotnet restore  
 
    - name: Build  
      run: dotnet build --no-restore  
