@@ -4,7 +4,7 @@ using Reqnroll;
 namespace TestingToolshopDemoWithSelenium.Steps
 {
     [Binding]
-    public class CheckHomePageTitleStepDefinitions
+    public class CheckHomePageTitleStepDefinitions : BaseStepDefinitions
     {
         [Given("I am on the home page")]
         public void GivenIAmOnTheHomePage()
