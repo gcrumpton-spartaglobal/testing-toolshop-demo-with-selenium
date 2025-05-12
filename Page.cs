@@ -10,5 +10,6 @@ namespace TestingToolshopDemoWithSelenium
     public record Page
     {
         public static HomePage HomePage { get; set; }
+        public static CheckoutPage CheckoutPage { get; set; }
     }
 }
