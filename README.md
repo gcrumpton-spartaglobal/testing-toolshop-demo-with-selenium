@@ -19,4 +19,4 @@ In order to run the GitHub workflow, you need to make sure you have a self-hoste
 2. Start Docker Engine e.g. open Docker Desktop.
     - Open Docker terminal and navigate to the project repo.
     - Run the command `docker compose up -d`
-3. Check that Selenium Grid is now running by going to localhost:4444 on your web browser. **Note**: if you want to run the GitHub workflow, you'll need to run the command `docker compose down` to stop Selenium Grid. The workflow will start this container for you, and uses the same ports.
+3. Check that Selenium Grid is now running by going to localhost:4444 on your web browser. **Note**: if you want to run the GitHub workflow, you'll need to run the command `docker compose down` to stop Selenium Grid first. The workflow will start this container for you, and uses the same ports.
