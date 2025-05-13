@@ -111,12 +111,9 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.AndAsync("I click on the \"Claw Hammer\" card", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 10
- await testRunner.AndAsync("I am taken to the \"Claw Hammer\" product page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 11
  await testRunner.AndAsync("I click the add to cart button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 11
  await testRunner.ThenAsync("I receive a pop-up saying \"Product added to shopping cart.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

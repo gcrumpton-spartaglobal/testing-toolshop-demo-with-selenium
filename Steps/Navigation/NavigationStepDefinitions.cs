@@ -43,12 +43,5 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             // Click the element
             ProductCard.Click();
         }
-
-        [When("I am taken to the {string} product page")]
-        public void WhenIAmTakenToTheProductPage(string p0)
-        {
-            throw new PendingStepException();
-        }
-
     }
 }

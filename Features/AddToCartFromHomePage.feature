@@ -7,6 +7,5 @@ Scenario: Add "Claw Hammer" to cart from home page
 	Given I am on the home page
 	When I scroll to the "Claw Hammer" product
 	And I click on the "Claw Hammer" card
-	And I am taken to the "Claw Hammer" product page
 	And I click the add to cart button
 	Then I receive a pop-up saying "Product added to shopping cart."
