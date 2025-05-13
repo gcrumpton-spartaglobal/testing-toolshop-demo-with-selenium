@@ -18,5 +18,24 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
 
             Page.HomePage.GoToHomePage();
         }
+
+        [When("I scroll to the {string} product")]
+        public void WhenIScrollToTheProduct(string p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [When("I click on the {string} card")]
+        public void WhenIClickOnTheCard(string p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [When("I am taken to the {string} product page")]
+        public void WhenIAmTakenToTheProductPage(string p0)
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
