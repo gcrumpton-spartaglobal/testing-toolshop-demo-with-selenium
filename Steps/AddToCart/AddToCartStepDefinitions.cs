@@ -24,7 +24,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         }
 
         [Then("I receive a pop-up saying {string}")]
-        public void ThenIReceiveAPop_UpSaying(string p0)
+        public void ThenIReceiveAPop_UpSaying(string alertText)
         {
             throw new PendingStepException();
         }
