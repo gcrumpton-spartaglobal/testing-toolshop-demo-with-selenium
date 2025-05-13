@@ -13,6 +13,8 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
     [Binding]
     public class NavigationStepDefinitions : BaseStepDefinitions
     {
+        public IWebElement ProductCard { get; set; }
+
         [Given("I am on the home page")]
         public void GivenIAmOnTheHomePage()
         {
