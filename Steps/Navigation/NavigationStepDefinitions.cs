@@ -31,20 +31,17 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             wait.Until(d => d.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]")).Displayed);
 
             // Find the element you want to scroll to
-            IWebElement productCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]"));
+            ProductCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]"));
 
             // Scroll to the element
-            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", productCard);
+            ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", ProductCard);
         }
 
         [When("I click on the {string} card")]
         public void WhenIClickOnTheCard(string productName)
         {
-            // Find the element you want to scroll to
-            IWebElement productCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]"));
-
             // Click the element
-            productCard.Click();
+            ProductCard.Click();
         }
 
         [When("I am taken to the {string} product page")]
