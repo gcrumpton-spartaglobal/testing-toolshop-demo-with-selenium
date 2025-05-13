@@ -22,7 +22,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         }
 
         [When("I scroll to the {string} product")]
-        public void WhenIScrollToTheProduct(string p0)
+        public void WhenIScrollToTheProduct(string productName)
         {
             //Wait for the page to load
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
