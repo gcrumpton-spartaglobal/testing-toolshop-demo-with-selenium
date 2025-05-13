@@ -13,7 +13,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         {
             //Wait for the page to load
             Thread.Sleep(5000);
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.CssSelector("#btn-add-to-cart")).Displayed);
 
             // Find the add to cart button
