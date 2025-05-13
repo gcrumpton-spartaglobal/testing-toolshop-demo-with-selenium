@@ -36,9 +36,13 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         }
 
         [When("I click on the {string} card")]
-        public void WhenIClickOnTheCard(string p0)
+        public void WhenIClickOnTheCard(string productName)
         {
-            throw new PendingStepException();
+            // Find the element you want to scroll to
+            IWebElement productCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]"));
+
+            // Click the element
+            productCard.Click();
         }
 
         [When("I am taken to the {string} product page")]

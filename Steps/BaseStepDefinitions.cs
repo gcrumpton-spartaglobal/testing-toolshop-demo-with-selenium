@@ -22,7 +22,7 @@ namespace TestingToolshopDemoWithSelenium.Steps
             GridUrl = new Uri("http://localhost:4444/wd/hub");
 
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
+            //chromeOptions.AddArgument("--headless");
 
             _driver = new RemoteWebDriver(GridUrl, chromeOptions);
             _driver.Manage().Window.Maximize();
