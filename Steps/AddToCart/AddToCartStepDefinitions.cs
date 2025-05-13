@@ -26,7 +26,16 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         [Then("I receive a pop-up saying {string}")]
         public void ThenIReceiveAPop_UpSaying(string alertText)
         {
-            throw new PendingStepException();
+            //Wait for the page to load
+            Thread.Sleep(1000);
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => d.FindElement(By.CssSelector($"[role='alert'][aria-label='{alertText}']")).Displayed);
+
+            // Find the alert element
+            var alertPopUp = Driver.FindElement(By.CssSelector($"[role='alert'][aria-label='{alertText}']"));
+
+            // Assert that the alert text is correct
+            Assert.That(alertPopUp.Text, Is.EqualTo(alertText));
         }
     }
 }
