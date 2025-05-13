@@ -27,7 +27,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         public void ThenIReceiveAPop_UpSaying(string alertText)
         {
             //Wait for the page to load
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.CssSelector($"[role='alert'][aria-label='{alertText}']")).Displayed);
 
