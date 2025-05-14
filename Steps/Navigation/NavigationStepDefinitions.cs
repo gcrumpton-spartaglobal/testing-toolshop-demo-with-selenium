@@ -43,5 +43,18 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             // Click the element
             ProductCard.Click();
         }
+
+        [When("I click the browser back button")]
+        public void WhenIClickTheBrowserBackButton()
+        {
+            throw new PendingStepException();
+        }
+
+        [When("I search for {string} in the search bar")]
+        public void WhenISearchForInTheSearchBar(string pliers)
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
