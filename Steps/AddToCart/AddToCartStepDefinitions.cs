@@ -23,6 +23,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
             addToCartButton.Click();
         }
 
+        [When("I click on the cart icon")]
+        public void WhenIClickOnTheCartIcon()
+        {
+            throw new PendingStepException();
+        }
+
         [Then("I receive a pop-up saying {string}")]
         public void ThenIReceiveAPop_UpSaying(string alertText)
         {
@@ -37,5 +43,18 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
             // Assert that the alert text is correct
             Assert.That(alertPopUp.Text, Is.EqualTo(alertText));
         }
+
+        [Then("I should see the added items in the cart")]
+        public void ThenIShouldSeeTheAddedItemsInTheCart()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then("The price total should be ${float}")]
+        public void ThenThePriceTotalShouldBe(Decimal p0)
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
