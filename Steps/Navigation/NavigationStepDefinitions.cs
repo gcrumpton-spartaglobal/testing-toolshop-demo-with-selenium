@@ -47,7 +47,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [When("I click the browser back button")]
         public void WhenIClickTheBrowserBackButton()
         {
-            throw new PendingStepException();
+            Driver.Navigate().Back();
         }
 
         [When("I search for {string} in the search bar")]
