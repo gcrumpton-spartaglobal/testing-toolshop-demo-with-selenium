@@ -2,6 +2,7 @@ using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Reqnroll;
+using TestingToolshopDemoWithSelenium.Pages;
 
 namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
 {
@@ -50,7 +51,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         [Then("I should see the added items in the cart")]
         public void ThenIShouldSeeTheAddedItemsInTheCart()
         {
-            throw new PendingStepException();
+            Page.CheckoutPage = new CheckoutPage(Driver);
+
+            var actualItemNames = Page.CheckoutPage.ItemNames();
+            var expectedItemNames = new List<string> { "Claw Hammer", "Pliers" };
+
+            Assert.That(actualItemNames, Is.EquivalentTo(expectedItemNames));
         }
 
         [Then("The price total should be ${float}")]
