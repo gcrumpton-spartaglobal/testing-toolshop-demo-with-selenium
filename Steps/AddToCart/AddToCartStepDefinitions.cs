@@ -53,6 +53,9 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         {
             Page.CheckoutPage = new CheckoutPage(Driver);
 
+            // Wait for the page to load
+            Thread.Sleep(5000);
+
             var actualItemNames = Page.CheckoutPage.ItemNames();
             var expectedItemNames = new List<string> { "Claw Hammer", "Pliers" };
 
@@ -62,7 +65,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         [Then("The price total should be ${float}")]
         public void ThenThePriceTotalShouldBe(Decimal totalPrice)
         {
-            throw new PendingStepException();
+            var actualTotalPriceString = Page.CheckoutPage.CheckoutTotal.Text;
+            var actualTotalPrice = Decimal.Parse(actualTotalPriceString.Replace("$", "").Trim());
+
+            Assert.That(totalPrice, Is.EqualTo(actualTotalPrice));
         }
 
     }
