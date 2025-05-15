@@ -51,7 +51,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         }
 
         [When("I search for {string} in the search bar")]
-        public void WhenISearchForInTheSearchBar(string pliers)
+        public void WhenISearchForInTheSearchBar(string productName)
         {
             throw new PendingStepException();
         }
