@@ -17,6 +17,7 @@ Scenario: Add "Pliers" to the cart from the home page with "Claw Hammer" already
 	And I click the add to cart button
 	And I click the browser back button
 	And I search for "pliers" in the search bar
+	And I scroll to the "Pliers" product
 	And I click on the "Pliers" card
 	And I click the add to cart button
 	And I click on the cart icon

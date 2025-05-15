@@ -158,18 +158,21 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.AndAsync("I search for \"pliers\" in the search bar", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 20
- await testRunner.AndAsync("I click on the \"Pliers\" card", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I scroll to the \"Pliers\" product", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 21
- await testRunner.AndAsync("I click the add to cart button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I click on the \"Pliers\" card", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 22
- await testRunner.AndAsync("I click on the cart icon", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I click the add to cart button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 23
- await testRunner.ThenAsync("I should see the added items in the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.AndAsync("I click on the cart icon", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 24
+ await testRunner.ThenAsync("I should see the added items in the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 25
  await testRunner.AndAsync("The price total should be $23.49", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
