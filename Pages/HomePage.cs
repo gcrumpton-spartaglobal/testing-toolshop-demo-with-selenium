@@ -28,5 +28,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
             return cardTitles;
         }
+
+        public void Checkout()
+        {
+            CartIcon.Click();
+        }
     }
 }

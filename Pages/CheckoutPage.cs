@@ -13,13 +13,16 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         public List<string> ItemNames()
         {
-            var items = driver.FindElements(By.XPath("//table[contains(@class, 'table-hover')]//td[@class='product-title']"));
+            var items = driver.FindElements(By.CssSelector("span[data-test='product-title']"))
+                .Select(e => e.Text.Trim())
+                .ToList();
+
             List<string> itemNames = new List<string>();
 
             foreach (var item in items)
             {
                 //var titleElement = item.FindElement(By.ClassName("product-title"));
-                itemNames.Add(item.Text);
+                itemNames.Add(item);
             }
 
             return itemNames;
