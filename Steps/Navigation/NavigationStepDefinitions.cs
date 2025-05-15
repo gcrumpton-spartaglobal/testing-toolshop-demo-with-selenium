@@ -28,10 +28,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         {
             //Wait for the page to load
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(d => d.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]")).Displayed);
+            wait.Until(d => d.FindElement(By.XPath($"//h5[@data-test='product-name' and normalize-space(text())='{productName}']")).Displayed);
 
             // Find the element you want to scroll to
-            ProductCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and contains(text(), '{productName}')]"));
+            ProductCard = Driver.FindElement(By.XPath($"//h5[@data-test='product-name' and normalize-space(text())='{productName}']"));
 
             // Scroll to the element
             ((IJavaScriptExecutor)Driver).ExecuteScript("arguments[0].scrollIntoView(true);", ProductCard);
