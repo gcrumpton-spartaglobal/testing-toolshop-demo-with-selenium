@@ -26,7 +26,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         [When("I click on the cart icon")]
         public void WhenIClickOnTheCartIcon()
         {
-            throw new PendingStepException();
+            Page.HomePage.Checkout();
         }
 
         [Then("I receive a pop-up saying {string}")]
