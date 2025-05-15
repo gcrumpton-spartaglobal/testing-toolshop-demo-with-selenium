@@ -26,6 +26,9 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         [When("I click on the cart icon")]
         public void WhenIClickOnTheCartIcon()
         {
+            // This is necessary for both products to show up in the checkout
+            Thread.Sleep(1000);
+
             Page.HomePage.Checkout();
         }
 
