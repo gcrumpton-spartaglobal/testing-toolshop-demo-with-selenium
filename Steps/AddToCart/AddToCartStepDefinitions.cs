@@ -60,7 +60,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
         }
 
         [Then("The price total should be ${float}")]
-        public void ThenThePriceTotalShouldBe(Decimal p0)
+        public void ThenThePriceTotalShouldBe(Decimal totalPrice)
         {
             throw new PendingStepException();
         }
