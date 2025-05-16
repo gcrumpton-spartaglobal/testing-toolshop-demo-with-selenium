@@ -12,5 +12,6 @@ namespace TestingToolshopDemoWithSelenium
         public static HomePage HomePage { get; set; }
         public static CheckoutPage CheckoutPage { get; set; }
         public static SignInPage SignInPage { get; set; }
+        public static RegisterAccountPage RegisterAccountPage { get; set; }
     }
 }
