@@ -8,5 +8,6 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement LastNameInput => driver.FindElement(By.Id("last_name"));
         public IWebElement DateOfBirthInput => driver.FindElement(By.Id("dob"));
         public IWebElement StreetInput => driver.FindElement(By.Id("street"));
+        public IWebElement PostalCodeInput => driver.FindElement(By.Id("postal_code"));
     }
 }
