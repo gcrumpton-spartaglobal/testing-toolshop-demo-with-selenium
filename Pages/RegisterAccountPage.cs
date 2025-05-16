@@ -11,5 +11,6 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement PostalCodeInput => driver.FindElement(By.Id("postal_code"));
         public IWebElement CityInput => driver.FindElement(By.Id("city"));
         public IWebElement StateInput => driver.FindElement(By.Id("state"));
+        public IWebElement CountryInput => driver.FindElement(By.Id("country"));
     }
 }
