@@ -1,6 +1,6 @@
 ﻿namespace TestingToolshopDemoWithSelenium.Pages
 {
-    public class RegisterAccountPage
+    public class RegisterAccountPage(IWebDriver driver) : WebPage(driver)
     {
     }
 }
