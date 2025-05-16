@@ -15,7 +15,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [When("I fill out the form with the following information:")]
         public void WhenIFillOutTheFormWithTheFollowingInformation(DataTable dataTable)
         {
-            throw new PendingStepException();
+            var accounts = dataTable.CreateSet<Account>();
         }
 
         [When("I click on the {string} button")]
