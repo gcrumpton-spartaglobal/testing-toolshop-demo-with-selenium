@@ -4,7 +4,7 @@ using Reqnroll;
 namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
 {
     [Binding]
-    public class CreateAnAccountStepDefinitions
+    public class CreateAnAccountStepDefinitions : BaseStepDefinitions
     {
         [When("I click {string}")]
         public void WhenIClick(string p0)
