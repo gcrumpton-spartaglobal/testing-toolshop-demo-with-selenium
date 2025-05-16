@@ -87,11 +87,29 @@ namespace TestingToolshopDemoWithSelenium.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I fill out the form with valid information and an account is created")]
         [NUnit.Framework.CategoryAttribute("happy")]
-        public async System.Threading.Tasks.Task IFillOutTheFormWithValidInformationAndAnAccountIsCreated()
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "Fake Country", "01234567890", "fake.email@hotmail.com", "52x+8=Hc79FjRTQ9", null)]
+        [NUnit.Framework.TestCaseAttribute("Sarah-Jane", "Smith", "14/04/1987", "5 Fake Lane", "FA89 9YZ", "Fake City", "Fake", "Fake Country", "01433567790", "sarah.j.smith@hotmail.com", "5W4WHsFL!+b$9!pQ", null)]
+        public async System.Threading.Tasks.Task IFillOutTheFormWithValidInformationAndAnAccountIsCreated(string firstName, string lastName, string dateOfBirth, string street, string postalCode, string city, string state, string country, string phone, string email, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "happy"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("dateOfBirth", dateOfBirth);
+            argumentsOfScenario.Add("street", street);
+            argumentsOfScenario.Add("postalCode", postalCode);
+            argumentsOfScenario.Add("city", city);
+            argumentsOfScenario.Add("state", state);
+            argumentsOfScenario.Add("country", country);
+            argumentsOfScenario.Add("phone", phone);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("I fill out the form with valid information and an account is created", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
@@ -125,17 +143,17 @@ this.ScenarioInitialize(scenarioInfo);
                             "Email",
                             "Password"});
                 table1.AddRow(new string[] {
-                            "<firstName>",
-                            "<lastName>",
-                            "<dateOfBirth>",
-                            "<street>",
-                            "<postalCode>",
-                            "<city>",
-                            "<state>",
-                            "<country>",
-                            "<phone>",
-                            "<email>",
-                            "<password>"});
+                            string.Format("{0}", firstName),
+                            string.Format("{0}", lastName),
+                            string.Format("{0}", dateOfBirth),
+                            string.Format("{0}", street),
+                            string.Format("{0}", postalCode),
+                            string.Format("{0}", city),
+                            string.Format("{0}", state),
+                            string.Format("{0}", country),
+                            string.Format("{0}", phone),
+                            string.Format("{0}", email),
+                            string.Format("{0}", password)});
 #line 12
  await testRunner.AndAsync("I fill out the form with the following information:", ((string)(null)), table1, "And ");
 #line hidden

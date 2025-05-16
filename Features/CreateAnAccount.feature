@@ -14,3 +14,7 @@ Scenario Outline: I fill out the form with valid information and an account is c
 		| <firstName> | <lastName> | <dateOfBirth> | <street> |  <postalCode> | <city> | <state> | <country> | <phone> | <email> | <password> |
 	And I click on the "Register" button
 	Then I am taken to the sign in page
+	Examples: 
+	| firstName | lastName | dateOfBirth | street        | postalCode | city      | state | country      | phone       | email                  | password         |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | Fake Country | 01234567890 | fake.email@hotmail.com | 52x+8=Hc79FjRTQ9 |
+	| Sarah-Jane | Smith   | 14/04/1987  | 5 Fake Lane | FA89 9YZ   | Fake City | Fake  | Fake Country | 01433567790 | sarah.j.smith@hotmail.com | 5W4WHsFL!+b$9!pQ |
