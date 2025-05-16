@@ -14,5 +14,6 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement CountryInput => driver.FindElement(By.Id("country"));
         public IWebElement PhoneInput => driver.FindElement(By.Id("phone"));
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
+        public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
     }
 }
