@@ -56,5 +56,18 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             Page.HomePage.Search(productName);
         }
 
+        [When("I click {string} in the nav bar")]
+        public void WhenIClickInTheNavBar(string navBarWebPage)
+        {
+            Page.HomePage.ClickOnNavBarLink(navBarWebPage);
+        }
+
+        [Then("I am taken to the sign in page")]
+        public void ThenIAmTakenToTheSignInPage()
+        {
+            Assert.That(Page.SignInPage.EmailInput.Displayed, Is.True);
+        }
+
+
     }
 }
