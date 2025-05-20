@@ -15,6 +15,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement PhoneInput => driver.FindElement(By.Id("phone"));
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
         public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
+        public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@data-test='register-submit']"));
 
         public void GoToRegisterAccountPage()
         {
