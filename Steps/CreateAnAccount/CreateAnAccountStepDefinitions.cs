@@ -12,6 +12,8 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         {
             Page.SignInPage = new SignInPage(Driver);
 
+            Thread.Sleep(5000);
+
             Page.SignInPage.RegisterAccountLink.Click();
         }
 
@@ -38,7 +40,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [When("I click on the {string} button")]
         public void WhenIClickOnTheButton(string register)
         {
-            throw new PendingStepException();
+            Page.RegisterAccountPage = new RegisterAccountPage(Driver);
+
+            // Click the register button
+            Page.RegisterAccountPage.RegisterButton.Click();
         }
     }
 }
