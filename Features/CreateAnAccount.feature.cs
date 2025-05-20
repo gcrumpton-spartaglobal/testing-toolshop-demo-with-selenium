@@ -87,8 +87,8 @@ namespace TestingToolshopDemoWithSelenium.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I fill out the form with valid information and an account is created")]
         [NUnit.Framework.CategoryAttribute("happy")]
-        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "Fake Country", "01234567890", "fake.email@hotmail.com", "52x+8=Hc79FjRTQ9", null)]
-        [NUnit.Framework.TestCaseAttribute("Sarah-Jane", "Smith", "14/04/1987", "5 Fake Lane", "FA89 9YZ", "Fake City", "Fake", "Fake Country", "01433567790", "sarah.j.smith@hotmail.com", "5W4WHsFL!+b$9!pQ", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "United Kingdom", "01234567890", "fake.email@hotmail.com", "52x+8=Hc79FjRTQ9", null)]
+        [NUnit.Framework.TestCaseAttribute("Sarah-Jane", "Smith", "14/04/1987", "5 Fake Lane", "FA89 9YZ", "Fake City", "Fake", "United Kingdom", "01433567790", "sarah.j.smith@hotmail.com", "5W4WHsFL!+b$9!pQ", null)]
         public async System.Threading.Tasks.Task IFillOutTheFormWithValidInformationAndAnAccountIsCreated(string firstName, string lastName, string dateOfBirth, string street, string postalCode, string city, string state, string country, string phone, string email, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
