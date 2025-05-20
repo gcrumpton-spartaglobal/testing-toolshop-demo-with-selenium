@@ -65,7 +65,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [Then("I am taken to the sign in page")]
         public void ThenIAmTakenToTheSignInPage()
         {
-            throw new PendingStepException();
+            Assert.That(Page.SignInPage.EmailInput.Displayed, Is.True);
         }
 
 
