@@ -57,7 +57,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         }
 
         [When("I click {string} in the nav bar")]
-        public void WhenIClickInTheNavBar(string p0)
+        public void WhenIClickInTheNavBar(string navBarWebPage)
         {
             throw new PendingStepException();
         }
