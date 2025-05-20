@@ -59,7 +59,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [When("I click {string} in the nav bar")]
         public void WhenIClickInTheNavBar(string navBarWebPage)
         {
-            throw new PendingStepException();
+            Page.HomePage.ClickOnNavBarLink(navBarWebPage);
         }
 
         [Then("I am taken to the sign in page")]
