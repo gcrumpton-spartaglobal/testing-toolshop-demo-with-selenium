@@ -35,5 +35,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         {
             CartIcon.Click();
         }
+
+        public void ClickOnSignInFromNavBar()
+        {
+            NavBarSignIn.Click();
+        }
     }
 }
