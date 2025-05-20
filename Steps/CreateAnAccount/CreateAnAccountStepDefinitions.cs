@@ -10,7 +10,9 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [When("I click {string}")]
         public void WhenIClick(string p0)
         {
-            throw new PendingStepException();
+            Page.SignInPage = new SignInPage(Driver);
+
+            Page.SignInPage.RegisterAccountLink.Click();
         }
 
         [When("I fill out the form with the following information:")]
