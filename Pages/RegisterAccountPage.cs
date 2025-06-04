@@ -19,6 +19,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@data-test='register-submit']"));
         #endregion
 
+        #region ErrorMessages
+        public IWebElement FirstNameErrorMessage => driver.FindElement(By.XPath("//div[@data-test='first-name-error']"));
+        #endregion
+
         public void GoToRegisterAccountPage()
         {
             driver.Navigate().GoToUrl(BaseUrl + "auth/register");
