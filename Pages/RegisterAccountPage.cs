@@ -4,6 +4,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 {
     public class RegisterAccountPage(IWebDriver driver) : WebPage(driver)
     {
+        #region InputFields
         public IWebElement FirstNameInput => driver.FindElement(By.Id("first_name"));
         public IWebElement LastNameInput => driver.FindElement(By.Id("last_name"));
         public IWebElement DateOfBirthInput => driver.FindElement(By.Id("dob"));
@@ -16,6 +17,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
         public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
         public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@data-test='register-submit']"));
+        #endregion
 
         public void GoToRegisterAccountPage()
         {
