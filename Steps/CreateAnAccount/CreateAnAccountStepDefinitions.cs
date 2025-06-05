@@ -49,7 +49,20 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [Then("I receive an error message for each field")]
         public void ThenIReceiveAnErrorMessageForEachField()
         {
-            throw new PendingStepException();
+            Assert.Multiple(() =>
+            {
+                Assert.That(Page.RegisterAccountPage.FirstNameErrorMessage.Displayed, Is.True, "First Name error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.LastNameErrorMessage.Displayed, Is.True, "Last Name error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.DateOfBirthErrorMessage.Displayed, Is.True, "Date of Birth error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.StreetErrorMessage.Displayed, Is.True, "Street error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.PostalCodeErrorMessage.Displayed, Is.True, "Postal Code error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.CityErrorMessage.Displayed, Is.True, "City error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.StateErrorMessage.Displayed, Is.True, "State error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.CountryErrorMessage.Displayed, Is.True, "Country error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.PhoneErrorMessage.Displayed, Is.True, "Phone error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.EmailErrorMessage.Displayed, Is.True, "Email error message is not displayed");
+                Assert.That(Page.RegisterAccountPage.PasswordErrorMessage.Displayed, Is.True, "Password error message is not displayed");
+            });
         }
 
     }
