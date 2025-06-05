@@ -25,6 +25,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement DateOfBirthErrorMessage => driver.FindElement(By.XPath("//div[@data-test='dob-error']"));
         public IWebElement StreetErrorMessage => driver.FindElement(By.XPath("//div[@data-test='street-error']"));
         public IWebElement PostalCodeErrorMessage => driver.FindElement(By.XPath("//div[@data-test='postal_code-error']"));
+        public IWebElement CityErrorMessage => driver.FindElement(By.XPath("//div[@data-test='city-error']"));
         #endregion
 
         public void GoToRegisterAccountPage()
