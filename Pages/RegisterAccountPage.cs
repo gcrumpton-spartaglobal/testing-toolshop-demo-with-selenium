@@ -29,6 +29,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement StateErrorMessage => driver.FindElement(By.XPath("//div[@data-test='state-error']"));
         public IWebElement CountryErrorMessage => driver.FindElement(By.XPath("//div[@data-test='country-error']"));
         public IWebElement PhoneErrorMessage => driver.FindElement(By.XPath("//div[@data-test='phone-error']"));
+        public IWebElement EmailErrorMessage => driver.FindElement(By.XPath("//div[@data-test='email-error']"));
         #endregion
 
         public void GoToRegisterAccountPage()
