@@ -45,5 +45,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             // Click the register button
             Page.RegisterAccountPage.RegisterButton.Click();
         }
+
+        [Then("I receive an error message for each field")]
+        public void ThenIReceiveAnErrorMessageForEachField()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
