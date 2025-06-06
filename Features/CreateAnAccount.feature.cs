@@ -326,6 +326,88 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I try to create an account when one already exists with the same email")]
+        [NUnit.Framework.CategoryAttribute("sad")]
+        [NUnit.Framework.TestCaseAttribute("Jane", "Doe", "24/07/1992", "5 Fake Lane", "FA74 9YZ", "Fake City", "Fake", "United Kingdom", "01833264720", "customer@practicesoftwaretesting.com", "4i3AF-F1r7E2qEsq", null)]
+        public async System.Threading.Tasks.Task ITryToCreateAnAccountWhenOneAlreadyExistsWithTheSameEmail(string firstName, string lastName, string dateOfBirth, string street, string postalCode, string city, string state, string country, string phone, string email, string password, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "sad"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("dateOfBirth", dateOfBirth);
+            argumentsOfScenario.Add("street", street);
+            argumentsOfScenario.Add("postalCode", postalCode);
+            argumentsOfScenario.Add("city", city);
+            argumentsOfScenario.Add("state", state);
+            argumentsOfScenario.Add("country", country);
+            argumentsOfScenario.Add("phone", phone);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("I try to create an account when one already exists with the same email", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 53
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 54
+ await testRunner.GivenAsync("I am on the home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 55
+ await testRunner.WhenAsync("I click \"Sign In\" in the nav bar", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 56
+ await testRunner.AndAsync("I click \"Register your account\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+                global::Reqnroll.Table table4 = new global::Reqnroll.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "Street",
+                            "PostalCode",
+                            "City",
+                            "State",
+                            "Country",
+                            "Phone",
+                            "Email",
+                            "Password"});
+                table4.AddRow(new string[] {
+                            string.Format("{0}", firstName),
+                            string.Format("{0}", lastName),
+                            string.Format("{0}", dateOfBirth),
+                            string.Format("{0}", street),
+                            string.Format("{0}", postalCode),
+                            string.Format("{0}", city),
+                            string.Format("{0}", state),
+                            string.Format("{0}", country),
+                            string.Format("{0}", phone),
+                            string.Format("{0}", email),
+                            string.Format("{0}", password)});
+#line 57
+ await testRunner.AndAsync("I fill out the form with the following information:", ((string)(null)), table4, "And ");
+#line hidden
+#line 60
+ await testRunner.AndAsync("I click on the \"Register\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 61
+ await testRunner.ThenAsync("I receive an error message stating that an account already exists", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

@@ -89,6 +89,13 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             }
         }
 
+        [Then("I receive an error message stating that an account already exists")]
+        public void ThenIReceiveAnErrorMessageStatingThatAnAccountAlreadyExists()
+        {
+            throw new PendingStepException();
+        }
+
+
 
     }
 }
