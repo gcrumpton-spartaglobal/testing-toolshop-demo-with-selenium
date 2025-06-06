@@ -48,3 +48,18 @@ Scenario Outline: I try to create various valid and invalid passwords
 	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | P        |
 	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Passwor  |
 	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Egj@svn1 |
+
+@sad
+Scenario Outline: I try to create an account when one already exists with the same email
+	Given I am on the home page
+	When I click "Sign In" in the nav bar
+	And I click "Register your account"
+	And I fill out the form with the following information:
+		| FirstName   | LastName   | DateOfBirth   | Street   | PostalCode   | City   | State   | Country   | Phone   | Email   | Password   |
+		| <firstName> | <lastName> | <dateOfBirth> | <street> | <postalCode> | <city> | <state> | <country> | <phone> | <email> | <password> |
+	And I click on the "Register" button
+	Then I receive an error message stating that an account aready exists
+	Examples:
+	| firstName | lastName | dateOfBirth | street      | postalCode | city      | state | country        | phone       | email                                | password  |
+	| Jane      | Doe      | 24/07/1992  | 5 Fake Lane | FA74 9YZ   | Fake City | Fake  | United Kingdom | 01833264720 | customer@practicesoftwaretesting.com | 4i3AF-F1r7E2qEsq |
+
