@@ -10,6 +10,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
         public IWebElement SubjectInput => driver.FindElement(By.Id("subject"));
         public IWebElement MessageInput => driver.FindElement(By.Id("message"));
+        public IWebElement AttachmentInput => driver.FindElement(By.Id("attachment"));
         #endregion
 
         public void GoToContactPage()
