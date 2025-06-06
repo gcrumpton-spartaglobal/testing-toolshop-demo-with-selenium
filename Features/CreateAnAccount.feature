@@ -32,3 +32,21 @@ Scenario Outline: I click the "Register" button without filling out the form
 	Examples:
 	| firstName | lastName | dateOfBirth | street | postalCode | city | state | country | phone | email | password |
 	|           |          |             |        |            |      |       |         |       |       |          |
+
+Scenario Outline: I try to create various valid and invalid passwords
+	Given I am on the home page
+	When I click "Sign In" in the nav bar
+	And I click "Register your account"
+	And I fill out the form with the following information:
+		| FirstName | LastName | DateOfBirth | Street | PostalCode | City | State | Country | Phone | Email | Password |
+		| <firstName> | <lastName> | <dateOfBirth> | <street> | <postalCode> | <city> | <state> | <country> | <phone> | <email> | <password> |
+	And I click on the "Register" button
+	Then The password is either valid or invalid:
+		| IsPasswordValid |
+		| <isPasswordValid> |
+	Examples:
+	| firstName | lastName | dateOfBirth | street        | postalCode | city      | state | country        | phone       | email                  | password | isPasswordValid |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com |          | false           |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | P        | false           |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Passwor  | false           |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Egj@svn1 | true            |
