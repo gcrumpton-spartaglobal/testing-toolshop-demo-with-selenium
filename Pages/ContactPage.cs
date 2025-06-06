@@ -8,6 +8,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement FirstNameInput => driver.FindElement(By.Id("first_name"));
         public IWebElement LastNameInput => driver.FindElement(By.Id("last_name"));
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
+        public IWebElement SubjectInput => driver.FindElement(By.Id("subject"));
         #endregion
 
         public void GoToContactPage()
