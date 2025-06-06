@@ -1,4 +1,5 @@
 using System;
+using OpenQA.Selenium.Support.UI;
 using Reqnroll;
 using TestingToolshopDemoWithSelenium.Pages;
 
@@ -92,7 +93,11 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [Then("I receive an error message stating that an account already exists")]
         public void ThenIReceiveAnErrorMessageStatingThatAnAccountAlreadyExists()
         {
-            throw new PendingStepException();
+            // Explicit wait for the error message to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
+
+            Assert.That(Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed, Is.True, "Email already exists error message is not displayed");
         }
 
 
