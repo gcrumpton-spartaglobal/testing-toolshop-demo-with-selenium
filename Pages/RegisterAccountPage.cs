@@ -4,6 +4,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 {
     public class RegisterAccountPage(IWebDriver driver) : WebPage(driver)
     {
+        #region InputFields
         public IWebElement FirstNameInput => driver.FindElement(By.Id("first_name"));
         public IWebElement LastNameInput => driver.FindElement(By.Id("last_name"));
         public IWebElement DateOfBirthInput => driver.FindElement(By.Id("dob"));
@@ -16,6 +17,22 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
         public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
         public IWebElement RegisterButton => driver.FindElement(By.XPath("//button[@data-test='register-submit']"));
+        #endregion
+
+        #region ErrorMessages
+        public IWebElement FirstNameErrorMessage => driver.FindElement(By.XPath("//div[@data-test='first-name-error']"));
+        public IWebElement LastNameErrorMessage => driver.FindElement(By.XPath("//div[@data-test='last-name-error']"));
+        public IWebElement DateOfBirthErrorMessage => driver.FindElement(By.XPath("//div[@data-test='dob-error']"));
+        public IWebElement StreetErrorMessage => driver.FindElement(By.XPath("//div[@data-test='street-error']"));
+        public IWebElement PostalCodeErrorMessage => driver.FindElement(By.XPath("//div[@data-test='postal_code-error']"));
+        public IWebElement CityErrorMessage => driver.FindElement(By.XPath("//div[@data-test='city-error']"));
+        public IWebElement StateErrorMessage => driver.FindElement(By.XPath("//div[@data-test='state-error']"));
+        public IWebElement CountryErrorMessage => driver.FindElement(By.XPath("//div[@data-test='country-error']"));
+        public IWebElement PhoneErrorMessage => driver.FindElement(By.XPath("//div[@data-test='phone-error']"));
+        public IWebElement EmailErrorMessage => driver.FindElement(By.XPath("//div[@data-test='email-error']"));
+        public IWebElement PasswordErrorMessage => driver.FindElement(By.XPath("//div[@data-test='password-error']"));
+        public IWebElement EmailAlreadyExistsErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'A customer with this email address already exists.')]"));
+        #endregion
 
         public void GoToRegisterAccountPage()
         {
