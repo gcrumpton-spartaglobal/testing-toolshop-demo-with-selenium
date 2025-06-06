@@ -31,6 +31,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement PhoneErrorMessage => driver.FindElement(By.XPath("//div[@data-test='phone-error']"));
         public IWebElement EmailErrorMessage => driver.FindElement(By.XPath("//div[@data-test='email-error']"));
         public IWebElement PasswordErrorMessage => driver.FindElement(By.XPath("//div[@data-test='password-error']"));
+        public IWebElement EmailAlreadyExistsErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'A customer with this email address already exists.')]"));
         #endregion
 
         public void GoToRegisterAccountPage()
