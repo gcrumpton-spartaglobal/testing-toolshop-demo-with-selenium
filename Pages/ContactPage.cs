@@ -21,6 +21,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement SubjectErrorMessage => driver.FindElement(By.Id("subject_alert"));
         public IWebElement MessageIsRequiredErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'Message is required')]"));
         public IWebElement MessageIsTooShortErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'Message must be minimal 50 characters')]"));
+        public IWebElement MessageIsTooLongErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'The message field must not be greater than 250')]"));
         #endregion
 
         public void GoToContactPage()
