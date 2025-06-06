@@ -14,6 +14,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement SendButton => driver.FindElement(By.ClassName("btnSubmit"));
         #endregion
 
+        #region ErrorMessages
+        public IWebElement FirstNameErrorMessage => driver.FindElement(By.Id("first_name_alert"));
+        #endregion
+
         public void GoToContactPage()
         {
             driver.Navigate().GoToUrl(BaseUrl + "contact");
