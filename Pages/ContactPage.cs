@@ -17,6 +17,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         #region ErrorMessages
         public IWebElement FirstNameErrorMessage => driver.FindElement(By.Id("first_name_alert"));
         public IWebElement LastNameErrorMessage => driver.FindElement(By.Id("last_name_alert"));
+        public IWebElement EmailErrorMessage => driver.FindElement(By.Id("email_alert"));
         #endregion
 
         public void GoToContactPage()
