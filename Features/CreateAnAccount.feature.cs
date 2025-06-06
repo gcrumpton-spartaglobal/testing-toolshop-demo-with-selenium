@@ -248,6 +248,84 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I try to create various valid and invalid passwords")]
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "United Kingdom", "01234567890", "fake.email@hotmail.com", "", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "United Kingdom", "01234567890", "fake.email@hotmail.com", "P", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "United Kingdom", "01234567890", "fake.email@hotmail.com", "Passwor", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Smith", "01/01/1982", "1 Fake Street", "FA65 9AL", "Fake City", "Fake", "United Kingdom", "01234567890", "fake.email@hotmail.com", "Egj@svn1", null)]
+        public async System.Threading.Tasks.Task ITryToCreateVariousValidAndInvalidPasswords(string firstName, string lastName, string dateOfBirth, string street, string postalCode, string city, string state, string country, string phone, string email, string password, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("dateOfBirth", dateOfBirth);
+            argumentsOfScenario.Add("street", street);
+            argumentsOfScenario.Add("postalCode", postalCode);
+            argumentsOfScenario.Add("city", city);
+            argumentsOfScenario.Add("state", state);
+            argumentsOfScenario.Add("country", country);
+            argumentsOfScenario.Add("phone", phone);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("I try to create various valid and invalid passwords", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 36
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 37
+ await testRunner.GivenAsync("I am on the home page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 38
+ await testRunner.WhenAsync("I click \"Sign In\" in the nav bar", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 39
+ await testRunner.AndAsync("I click \"Register your account\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+                global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "DateOfBirth",
+                            "Street",
+                            "PostalCode",
+                            "City",
+                            "State",
+                            "Country",
+                            "Phone",
+                            "Email",
+                            "Password"});
+                table3.AddRow(new string[] {
+                            string.Format("{0}", firstName),
+                            string.Format("{0}", lastName),
+                            string.Format("{0}", dateOfBirth),
+                            string.Format("{0}", street),
+                            string.Format("{0}", postalCode),
+                            string.Format("{0}", city),
+                            string.Format("{0}", state),
+                            string.Format("{0}", country),
+                            string.Format("{0}", phone),
+                            string.Format("{0}", email),
+                            string.Format("{0}", password)});
+#line 40
+ await testRunner.AndAsync("I fill out the form with the following information:", ((string)(null)), table3, "And ");
+#line hidden
+#line 43
+ await testRunner.AndAsync("I click on the \"Register\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 44
+ await testRunner.ThenAsync("The password is either valid or invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

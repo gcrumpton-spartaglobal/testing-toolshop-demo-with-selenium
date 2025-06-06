@@ -41,12 +41,10 @@ Scenario Outline: I try to create various valid and invalid passwords
 		| FirstName | LastName | DateOfBirth | Street | PostalCode | City | State | Country | Phone | Email | Password |
 		| <firstName> | <lastName> | <dateOfBirth> | <street> | <postalCode> | <city> | <state> | <country> | <phone> | <email> | <password> |
 	And I click on the "Register" button
-	Then The password is either valid or invalid:
-		| IsPasswordValid |
-		| <isPasswordValid> |
+	Then The password is either valid or invalid
 	Examples:
-	| firstName | lastName | dateOfBirth | street        | postalCode | city      | state | country        | phone       | email                  | password | isPasswordValid |
-	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com |          | false           |
-	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | P        | false           |
-	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Passwor  | false           |
-	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Egj@svn1 | true            |
+	| firstName | lastName | dateOfBirth | street        | postalCode | city      | state | country        | phone       | email                  | password |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com |          |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | P        |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Passwor  |
+	| John      | Smith    | 01/01/1982  | 1 Fake Street | FA65 9AL   | Fake City | Fake  | United Kingdom | 01234567890 | fake.email@hotmail.com | Egj@svn1 |

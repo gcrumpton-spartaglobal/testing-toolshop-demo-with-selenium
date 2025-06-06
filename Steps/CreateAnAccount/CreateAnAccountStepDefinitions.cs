@@ -7,6 +7,8 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
     [Binding]
     public class CreateAnAccountStepDefinitions : BaseStepDefinitions
     {
+        private Account account;
+
         [When("I click {string}")]
         public void WhenIClick(string p0)
         {
@@ -20,7 +22,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [When("I fill out the form with the following information:")]
         public void WhenIFillOutTheFormWithTheFollowingInformation(DataTable dataTable)
         {
-            var account = dataTable.CreateInstance<Account>();
+            account = dataTable.CreateInstance<Account>();
             var registerAccountPage = new RegisterAccountPage(Driver);
 
             // Fill out the form with the account information
@@ -65,10 +67,26 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             });
         }
 
-        [Then("The password is either valid or invalid:")]
-        public void ThenThePasswordIsEitherValidOrInvalid(DataTable dataTable)
+        [Then("The password is either valid or invalid")]
+        public void ThenThePasswordIsEitherValidOrInvalid()
         {
-            throw new PendingStepException();
+            // Perform BVA
+            if (account.Password.Length == 0)
+            {
+                Assert.That(Page.RegisterAccountPage.PasswordErrorMessage.Displayed, Is.True, "Password error message is not displayed for empty password");
+            }
+            else if (account.Password.Length <= 7 && account.Password.Length > 0)
+            {
+                Assert.That(Page.RegisterAccountPage.PasswordErrorMessage.Displayed, Is.True, "Password error message is not displayed for password less than or equal to 7 characters");
+            }
+            else if (account.Password.Length >= 8)
+            {
+                Assert.Throws<OpenQA.Selenium.NoSuchElementException>(() =>
+                {
+                    // Accessing Displayed should throw an exception if the error message is not present for a valid password
+                    var displayed = Page.RegisterAccountPage.PasswordErrorMessage.Displayed;
+                }, "An exception was expected when checking for password error message with a valid password");
+            }
         }
 
 
