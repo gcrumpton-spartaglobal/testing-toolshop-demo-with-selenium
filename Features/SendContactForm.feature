@@ -1,6 +1,7 @@
 ﻿Feature: SendContactForm
 
-A short summary of the feature
+As a user, I want to be able to navigate to the contact page, fill out a contact form, 
+and submit it to receive a confirmation message.
 
 @tag1
 Scenario: [scenario name]
