@@ -65,5 +65,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             });
         }
 
+        [Then("The password is either valid or invalid:")]
+        public void ThenThePasswordIsEitherValidOrInvalid(DataTable dataTable)
+        {
+            throw new PendingStepException();
+        }
+
+
     }
 }
