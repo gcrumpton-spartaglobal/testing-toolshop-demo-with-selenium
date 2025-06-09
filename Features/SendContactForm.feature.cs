@@ -87,9 +87,9 @@ namespace TestingToolshopDemoWithSelenium.Features
         [NUnit.Framework.DescriptionAttribute("I fill out the contact form with valid information and receive a confirmation mes" +
             "sage")]
         [NUnit.Framework.CategoryAttribute("happy")]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i" +
-            "ncididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru" +
-            "d exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in" +
+            "cididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud" +
+            " exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", null)]
         public async System.Threading.Tasks.Task IFillOutTheContactFormWithValidInformationAndReceiveAConfirmationMessage(string firstName, string lastName, string email, string subject, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -205,18 +205,18 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I try to submit the contact form with various message lengths")]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "", null)]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"L\"", null)]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipisci\"", null)]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscin\"", null)]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula " +
-            "eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient " +
-            "montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu" +
-            ", pretium.\"", null)]
-        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula " +
-            "eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient " +
-            "montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu" +
-            ", pretium q\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "L", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "Lorem ipsum dolor sit amet, consectetuer adipisci", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "Lorem ipsum dolor sit amet, consectetuer adipiscin", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula e" +
+            "get dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient m" +
+            "ontes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu," +
+            " pretium.", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "Return", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula e" +
+            "get dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient m" +
+            "ontes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu," +
+            " pretium q", null)]
         public async System.Threading.Tasks.Task ITryToSubmitTheContactFormWithVariousMessageLengths(string firstName, string lastName, string email, string subject, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

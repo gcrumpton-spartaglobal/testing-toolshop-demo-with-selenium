@@ -20,7 +20,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
             contactPage.FirstNameInput.SendKeys(contactForm.FirstName);
             contactPage.LastNameInput.SendKeys(contactForm.LastName);
             contactPage.EmailInput.SendKeys(contactForm.Email);
-            contactPage.SubjectInput.SendKeys(contactForm.Subject.Trim( '/', '"'));
+            contactPage.SubjectInput.SendKeys(contactForm.Subject);
             contactPage.MessageInput.SendKeys(contactForm.Message);
         }
 
@@ -50,7 +50,34 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
         [Then("I receive an error or success message")]
         public void ThenIReceiveAnErrorOrSuccessMessage()
         {
-            throw new PendingStepException();
+            // Explicit wait for the message to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+
+            // Perform BVA
+            if (contactForm.Message.Length == 0)
+            {                
+                wait.Until(drv => Page.ContactPage.MessageIsRequiredErrorMessage.Displayed);
+
+                Assert.That(Page.ContactPage.MessageIsRequiredErrorMessage.Displayed, Is.True);
+            }
+            else if (contactForm.Message.Length >= 1 && contactForm.Message.Length <= 49)
+            {
+                wait.Until(drv => Page.ContactPage.MessageIsTooShortErrorMessage.Displayed);
+
+                Assert.That(Page.ContactPage.MessageIsTooShortErrorMessage.Displayed, Is.True);
+            }
+            else if (contactForm.Message.Length >= 50 && contactForm.Message.Length <= 250)
+            {
+                wait.Until(drv => Page.ContactPage.FormSentMessage.Displayed);
+
+                Assert.That(Page.ContactPage.FormSentMessage.Displayed, Is.True);
+            }
+            else if (contactForm.Message.Length > 250)
+            {
+                wait.Until(drv => Page.ContactPage.MessageIsTooLongErrorMessage.Displayed);
+
+                Assert.That(Page.ContactPage.MessageIsTooLongErrorMessage.Displayed, Is.True);
+            }
         }
 
 
