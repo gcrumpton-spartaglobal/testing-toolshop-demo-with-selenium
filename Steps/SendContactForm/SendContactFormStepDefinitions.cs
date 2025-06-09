@@ -33,5 +33,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
 
             Assert.That(Page.ContactPage.FormSentMessage.Displayed, Is.True);
         }
+
+        [Then("I receive an error message for each field on the contact form")]
+        public void ThenIReceiveAnErrorMessageForEachFieldOnTheContactForm()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
