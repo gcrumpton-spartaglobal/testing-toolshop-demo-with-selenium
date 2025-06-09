@@ -40,15 +40,6 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             registerAccountPage.PasswordInput.SendKeys(account.Password);
         }
 
-        [When("I click on the {string} button")]
-        public void WhenIClickOnTheButton(string register)
-        {
-            Page.RegisterAccountPage = new RegisterAccountPage(Driver);
-
-            // Click the register button
-            Page.RegisterAccountPage.RegisterButton.Click();
-        }
-
         [Then("I receive an error message for each field")]
         public void ThenIReceiveAnErrorMessageForEachField()
         {
