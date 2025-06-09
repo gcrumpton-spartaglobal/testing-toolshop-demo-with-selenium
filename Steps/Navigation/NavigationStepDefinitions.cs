@@ -26,7 +26,9 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [Given("I am on the contact page")]
         public void GivenIAmOnTheContactPage()
         {
-            throw new PendingStepException();
+            Page.ContactPage = new ContactPage(Driver);
+
+            Page.ContactPage.GoToContactPage();
         }
 
 
