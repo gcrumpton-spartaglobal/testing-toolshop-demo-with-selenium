@@ -144,6 +144,64 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I try to submit the contact form with no entered information")]
+        [NUnit.Framework.CategoryAttribute("sad")]
+        [NUnit.Framework.TestCaseAttribute("", "", "", "", "", null)]
+        public async System.Threading.Tasks.Task ITryToSubmitTheContactFormWithNoEnteredInformation(string firstName, string lastName, string email, string subject, string message, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "sad"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("subject", subject);
+            argumentsOfScenario.Add("message", message);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("I try to submit the contact form with no entered information", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 20
+ await testRunner.GivenAsync("I am on the contact page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "Email",
+                            "Subject",
+                            "Message"});
+                table6.AddRow(new string[] {
+                            string.Format("{0}", firstName),
+                            string.Format("{0}", lastName),
+                            string.Format("{0}", email),
+                            string.Format("{0}", subject),
+                            string.Format("{0}", message)});
+#line 21
+ await testRunner.WhenAsync("I fill out the contact form with the following information:", ((string)(null)), table6, "When ");
+#line hidden
+#line 24
+ await testRunner.AndAsync("I click on the \"Send\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 25
+ await testRunner.ThenAsync("I receive an error message for each field on the contact form", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore

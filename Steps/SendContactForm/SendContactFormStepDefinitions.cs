@@ -37,7 +37,14 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
         [Then("I receive an error message for each field on the contact form")]
         public void ThenIReceiveAnErrorMessageForEachFieldOnTheContactForm()
         {
-            throw new PendingStepException();
+            Assert.Multiple(() =>
+            {
+                Assert.That(Page.ContactPage.FirstNameErrorMessage.Displayed, Is.True, "First Name error message is not displayed");
+                Assert.That(Page.ContactPage.LastNameErrorMessage.Displayed, Is.True, "Last Name error message is not displayed");
+                Assert.That(Page.ContactPage.EmailErrorMessage.Displayed, Is.True, "Email error message is not displayed");
+                Assert.That(Page.ContactPage.SubjectErrorMessage.Displayed, Is.True, "Subject error message is not displayed");
+                Assert.That(Page.ContactPage.MessageIsRequiredErrorMessage.Displayed, Is.True, "Message is required error message is not displayed");
+            });
         }
 
     }
