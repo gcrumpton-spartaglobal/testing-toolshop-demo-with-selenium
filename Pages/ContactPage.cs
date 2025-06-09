@@ -23,6 +23,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement MessageIsTooLongErrorMessage => driver.FindElement(By.XPath("//div[contains(text(), 'The message field must not be greater than 250')]"));
         #endregion
 
+        #region SuccessMessages
+        public IWebElement FormSentMessage => driver.FindElement(By.XPath("//div[contains(text(), 'Thanks for your message! We will contact you shortly.')]"));
+        #endregion
+
         public void GoToContactPage()
         {
             driver.Navigate().GoToUrl(BaseUrl + "contact");
