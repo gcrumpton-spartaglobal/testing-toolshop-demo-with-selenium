@@ -71,6 +71,26 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             Page.HomePage.ClickOnNavBarLink(navBarWebPage);
         }
 
+        [When("I click on the {string} button")]
+        public void WhenIClickOnTheButton(string buttonText)
+        {
+            if (buttonText == "Register")
+            {
+                Page.RegisterAccountPage = new RegisterAccountPage(Driver);
+
+                // Click the register button
+                Page.RegisterAccountPage.RegisterButton.Click();
+            }
+
+            else if (buttonText == "Send")
+            {
+                Page.ContactPage = new ContactPage(Driver);
+
+                // Click the send button
+                Page.ContactPage.SendButton.Click();
+            }
+        }
+
         [Then("I am taken to the sign in page")]
         public void ThenIAmTakenToTheSignInPage()
         {
