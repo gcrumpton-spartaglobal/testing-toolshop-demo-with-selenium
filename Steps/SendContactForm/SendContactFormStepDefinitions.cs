@@ -47,5 +47,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
             });
         }
 
+        [Then("I receive an error or success message")]
+        public void ThenIReceiveAnErrorOrSuccessMessage()
+        {
+            throw new PendingStepException();
+        }
+
+
     }
 }

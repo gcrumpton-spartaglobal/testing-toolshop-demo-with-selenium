@@ -202,6 +202,68 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I try to submit the contact form with various message lengths")]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"L\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipisci\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscin\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula " +
+            "eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient " +
+            "montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu" +
+            ", pretium.\"", null)]
+        [NUnit.Framework.TestCaseAttribute("John", "Doe", "john.doe@gmail.com", "\"Return\"", "\"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula " +
+            "eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient " +
+            "montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu" +
+            ", pretium q\"", null)]
+        public async System.Threading.Tasks.Task ITryToSubmitTheContactFormWithVariousMessageLengths(string firstName, string lastName, string email, string subject, string message, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("subject", subject);
+            argumentsOfScenario.Add("message", message);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("I try to submit the contact form with various message lengths", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 31
+ await testRunner.GivenAsync("I am on the contact page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+                global::Reqnroll.Table table7 = new global::Reqnroll.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "Email",
+                            "Subject",
+                            "Message"});
+                table7.AddRow(new string[] {
+                            string.Format("{0}", firstName),
+                            string.Format("{0}", lastName),
+                            string.Format("{0}", email),
+                            string.Format("{0}", subject),
+                            string.Format("{0}", message)});
+#line 32
+ await testRunner.WhenAsync("I fill out the contact form with the following information:", ((string)(null)), table7, "When ");
+#line hidden
+#line 35
+ await testRunner.AndAsync("I click on the \"Send\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 36
+ await testRunner.ThenAsync("I receive an error or success message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
