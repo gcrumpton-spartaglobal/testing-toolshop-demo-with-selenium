@@ -10,6 +10,7 @@ on:
    branches: [ "dev" ]
  workflow_dispatch:
 
+
 jobs:  
  set-up-containers:  
    runs-on: self-hosted  
@@ -38,14 +39,11 @@ jobs:
      with:  
        dotnet-version: 8.0.x  
 
- build-and-test:
-   runs-on: self-hosted
+ build-and-test-chrome:
+   runs-on: [self-hosted, action-runner-1]
 
-   strategy:
-     matrix:
-       browser: [chrome, firefox, edge]
    env:
-     TEST_BROWSER: ${{ matrix.browser }}
+     TEST_BROWSER: chrome
 
    needs: set-up-dotnet
 
@@ -58,7 +56,47 @@ jobs:
    - name: Build  
      run: dotnet build --no-restore  
 
-   - name: Run tests on ${{ matrix.browser }}  
+   - name: Run tests on Chrome  
+     run: dotnet test --no-build --verbosity normal  
+
+ build-and-test-firefox:
+   runs-on: [self-hosted, action-runner-2]
+
+   env:
+     TEST_BROWSER: firefox
+
+   needs: set-up-dotnet
+
+   steps:
+   - uses: actions/checkout@v4
+     
+   - name: Restore dependencies  
+     run: dotnet restore  
+
+   - name: Build  
+     run: dotnet build --no-restore  
+
+   - name: Run tests on Firefox  
+     run: dotnet test --no-build --verbosity normal  
+
+ build-and-test-edge:
+   runs-on: [self-hosted, action-runner-3]
+
+   env:
+     TEST_BROWSER: edge
+
+   needs: set-up-dotnet
+
+   steps:
+   - uses: actions/checkout@v4
+     
+   - name: Restore dependencies  
+     run: dotnet restore  
+
+   - name: Build  
+     run: dotnet build --no-restore  
+
+   - name: Run tests on Edge  
      run: dotnet test --no-build --verbosity normal  
 
  stop-containers:
