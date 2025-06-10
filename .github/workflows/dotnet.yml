@@ -40,7 +40,7 @@ jobs:
        dotnet-version: 8.0.x  
 
  build-and-test-chrome:
-   runs-on: [self-hosted, action-runner-1]
+   runs-on: [self-hosted, actions-runner-1]
 
    env:
      TEST_BROWSER: chrome
@@ -60,7 +60,7 @@ jobs:
      run: dotnet test --no-build --verbosity normal  
 
  build-and-test-firefox:
-   runs-on: [self-hosted, action-runner-2]
+   runs-on: [self-hosted, actions-runner-2]
 
    env:
      TEST_BROWSER: firefox
@@ -80,7 +80,7 @@ jobs:
      run: dotnet test --no-build --verbosity normal  
 
  build-and-test-edge:
-   runs-on: [self-hosted, action-runner-3]
+   runs-on: [self-hosted, actions-runner-3]
 
    env:
      TEST_BROWSER: edge
