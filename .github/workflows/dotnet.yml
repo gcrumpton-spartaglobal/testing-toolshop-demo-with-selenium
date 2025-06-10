@@ -102,7 +102,10 @@ jobs:
  stop-containers:
    runs-on: self-hosted
 
-   needs: build-and-test
+   needs:
+     - build-and-test-chrome
+     - build-and-test-firefox
+     - build-and-test-edge
 
    steps:
    - uses: actions/checkout@v4
