@@ -69,9 +69,9 @@ namespace TestingToolshopDemoWithSelenium
             var homePage = new HomePage(Driver);
             homePage.GoToHomePage();
             homePage.Search("Pliers");
-            Thread.Sleep(10000);
+            //Thread.Sleep(10000);
             // Explicit wait for the 4 results to be displayed
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30));
             wait.Until(d => d.FindElements(By.CssSelector(".card")).Count == 4);
 
             var cardTitles = homePage.CardTitles();

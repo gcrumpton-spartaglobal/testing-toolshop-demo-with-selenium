@@ -92,16 +92,17 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
             //wait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
 
             // Fluent wait for the error message to be displayed
-            WebDriverWait fluentWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10))
+            WebDriverWait fluentWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(30))
             {
-                Timeout = TimeSpan.FromSeconds(30),
                 PollingInterval = TimeSpan.FromMilliseconds(500),
             };
 
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
 
             // Wait until the error message is displayed
-            fluentWait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
+            fluentWait.Until(drv => 
+                Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed && Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Enabled
+            );
 
             Assert.That(Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed, Is.True, "Email already exists error message is not displayed");
         }
