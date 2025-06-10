@@ -7,7 +7,7 @@ on:
  push:  
    branches: [ "dev" ]  
  pull_request:  
-   branches: [ "dev" ]  
+   branches: [ "dev" ]
  workflow_dispatch:
 
 jobs:  
@@ -41,6 +41,12 @@ jobs:
  build-and-test:
    runs-on: self-hosted
 
+   strategy:
+     matrix:
+       browser: [chrome, firefox, edge]
+   env:
+     TEST_BROWSER: ${{ matrix.browser }}
+
    needs: set-up-dotnet
 
    steps:
@@ -52,7 +58,7 @@ jobs:
    - name: Build  
      run: dotnet build --no-restore  
 
-   - name: Test  
+   - name: Run tests on ${{ matrix.browser }}  
      run: dotnet test --no-build --verbosity normal  
 
  stop-containers:
