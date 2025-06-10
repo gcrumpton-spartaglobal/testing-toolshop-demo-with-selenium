@@ -1,74 +1,84 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Edge;
 using TestingToolshopDemoWithSelenium.Pages;
 
 namespace TestingToolshopDemoWithSelenium
 {
+    [TestFixture("chrome")]
+    [TestFixture("firefox")]
+    [TestFixture("edge")]
+    [Parallelizable(ParallelScope.All)]
     public class PomTest
     {
-        private static IWebDriver _driver;
+        public IWebDriver Driver { get; set; }
+        public string Browser { get; set; }
+        private DriverOptions _driverOptions;
         protected Uri GridUrl;
 
-        [OneTimeSetUp]
+        public PomTest(string browser)
+        {
+            Browser = browser;
+        }
+
+        [SetUp]
         public void SetUp()
         {
             GridUrl = new Uri("http://localhost:4444/wd/hub");
 
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArgument("--headless");
+            switch (Browser.ToLower())
+            {
+                case "chrome":
+                    _driverOptions = new ChromeOptions();
+                    break;
+                case "firefox":
+                    _driverOptions = new FirefoxOptions();
+                    break;
+                case "edge":
+                    _driverOptions = new EdgeOptions();
+                    break;
+                default:
+                    throw new ArgumentException($"Unsupported browser: {Browser}");
+            }
 
-            _driver = new RemoteWebDriver(GridUrl, chromeOptions);
-            _driver.Manage().Window.Maximize();
-
-            // Set implicit wait
-            //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(50);
+            Driver = new RemoteWebDriver(GridUrl, _driverOptions.ToCapabilities());
+            Driver.Manage().Window.Maximize();
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void TearDown()
         {
-            _driver.Dispose();
+            Driver.Dispose();
         }
 
         [Test]
         public void CheckTitle()
         {
-            var homePage = new HomePage(_driver);
-
+            var homePage = new HomePage(Driver);
             homePage.GoToHomePage();
-
             string pageTitle = homePage.PageTitle;
-
             Assert.That(pageTitle, Is.EqualTo("Practice Software Testing - Toolshop - v5.0"));
         }
 
         [Test]
         public void SearchForPliersContainsFourResults()
         {
-            var homePage = new HomePage(_driver);
-
+            var homePage = new HomePage(Driver);
             homePage.GoToHomePage();
             homePage.Search("Pliers");
-
-            // Wait for the search results to load
             Thread.Sleep(5000);
-
-            // Obtain the card titles after the search
             var cardTitles = homePage.CardTitles();
-
             Assert.That(cardTitles, Has.Count.EqualTo(4));
         }
 
         [Test]
         public void CheckSignInPageHasLoginText()
         {
-            var signInPage = new SignInPage(_driver);
-
+            var signInPage = new SignInPage(Driver);
             signInPage.GoToSignInPage();
-
             string loginText = signInPage.LoginText.Text;
-
             Assert.That(loginText, Is.EqualTo("Login"));
         }
     }
