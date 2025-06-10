@@ -60,6 +60,6 @@ Scenario Outline: I try to create an account when one already exists with the sa
 	And I click on the "Register" button
 	Then I receive an error message stating that an account already exists
 	Examples:
-	| firstName | lastName | dateOfBirth | street      | postalCode | city      | state | country        | phone       | email                                | password  |
-	| Jane      | Doe      | 24/07/1992  | 5 Fake Lane | FA74 9YZ   | Fake City | Fake  | United Kingdom | 01833264720 | customer@practicesoftwaretesting.com | 4i3AF-F1r7E2qEsq |
+	| firstName | lastName | dateOfBirth | street      | postalCode | city      | state | country        | phone       | email                                | password         |
+	| Jane      | Doe      | 1992-07-24  | 5 Fake Lane | FA74 9YZ   | Fake City | Fake  | United Kingdom | 01833264720 | customer@practicesoftwaretesting.com | 4i3AF-F1r7E2qEsq |
 
