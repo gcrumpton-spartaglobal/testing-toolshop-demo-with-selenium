@@ -1,4 +1,5 @@
 using System;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using Reqnroll;
 using TestingToolshopDemoWithSelenium.Pages;
@@ -84,11 +85,23 @@ namespace TestingToolshopDemoWithSelenium.Steps.CreateAnAccount
         [Then("I receive an error message stating that an account already exists")]
         public void ThenIReceiveAnErrorMessageStatingThatAnAccountAlreadyExists()
         {
-            Thread.Sleep(10000);
+            //Thread.Sleep(10000);
 
             // Explicit wait for the error message to be displayed
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
+            //WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            //wait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
+
+            // Fluent wait for the error message to be displayed
+            WebDriverWait fluentWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10))
+            {
+                Timeout = TimeSpan.FromSeconds(30),
+                PollingInterval = TimeSpan.FromMilliseconds(500),
+            };
+
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
+
+            // Wait until the error message is displayed
+            fluentWait.Until(drv => Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed);
 
             Assert.That(Page.RegisterAccountPage.EmailAlreadyExistsErrorMessage.Displayed, Is.True, "Email already exists error message is not displayed");
         }
