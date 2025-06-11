@@ -31,6 +31,11 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             Page.ContactPage.GoToContactPage();
         }
 
+        [Given("I am on the sign in page")]
+        public void GivenIAmOnTheSignInPage()
+        {
+            throw new PendingStepException();
+        }
 
         [When("I scroll to the {string} product")]
         public void WhenIScrollToTheProduct(string productName)
