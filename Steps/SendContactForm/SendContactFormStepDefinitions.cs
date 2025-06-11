@@ -37,6 +37,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
         [Then("I receive an error message for each field on the contact form")]
         public void ThenIReceiveAnErrorMessageForEachFieldOnTheContactForm()
         {
+            // Explicit wait for at least one error message to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Page.ContactPage.FirstNameErrorMessage.Displayed);
+
             Assert.Multiple(() =>
             {
                 Assert.That(Page.ContactPage.FirstNameErrorMessage.Displayed, Is.True, "First Name error message is not displayed");
