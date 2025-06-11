@@ -33,7 +33,11 @@ namespace TestingToolshopDemoWithSelenium.Steps.SignIn
         [Then("I am taken to the account dashboard")]
         public void ThenIAmTakenToTheAccountDashboard()
         {
-            throw new PendingStepException();
+            // Explicit wait for the account dashboard to load
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Driver.FindElement(By.XPath("//h1[contains(text(), 'My account')]")).Displayed);
+
+            Assert.That(Driver.FindElement(By.XPath("//h1[contains(text(), 'My account')]")).Displayed, Is.True);
         }
 
     }

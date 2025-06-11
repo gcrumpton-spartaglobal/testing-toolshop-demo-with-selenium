@@ -133,6 +133,57 @@ this.ScenarioInitialize(scenarioInfo);
             }
             await this.ScenarioCleanupAsync();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("As a regular user, I enter my email address and password and I am taken to my acc" +
+            "ount dashboard")]
+        [NUnit.Framework.CategoryAttribute("happy")]
+        [NUnit.Framework.TestCaseAttribute("customer@practicesoftwaretesting.com", "welcome01", null)]
+        public async System.Threading.Tasks.Task AsARegularUserIEnterMyEmailAddressAndPasswordAndIAmTakenToMyAccountDashboard(string email, string password, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "happy"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("As a regular user, I enter my email address and password and I am taken to my acc" +
+                    "ount dashboard", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 19
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 20
+ await testRunner.GivenAsync("I am on the sign in page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+                global::Reqnroll.Table table9 = new global::Reqnroll.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table9.AddRow(new string[] {
+                            string.Format("{0}", email),
+                            string.Format("{0}", password)});
+#line 21
+ await testRunner.WhenAsync("I fill out the sign in form with the following information:", ((string)(null)), table9, "When ");
+#line hidden
+#line 24
+ await testRunner.AndAsync("I click on the \"Login\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 25
+ await testRunner.ThenAsync("I am taken to the account dashboard", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
     }
 }
 #pragma warning restore
