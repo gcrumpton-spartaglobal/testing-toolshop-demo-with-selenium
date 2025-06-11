@@ -25,10 +25,12 @@ This repo contains a Selenium testing framework for the website https://practice
 - (Optional) Self-hosted runner for running GitHub Actions
 
 ## (Optional) Set Up Self-Hosted Runner
-In order to run the GitHub workflow, you need to make sure you have a self-hosted runner installed on your machine.
+In order to run the GitHub workflow, you need to make sure you have 3 different self-hosted runners installed on your machine.
   1. Fork this repo.
   2. Navigate to Settings -> Actions -> Runners
   3. Follow the instructions for setting up self-hosted runners on your machine.
+      - Ensure that you set up 3 different actions runners, all called 'actions-runners-1', 'actions-runners-2', and 'actions-runners-3'.
+      - When prompted to add extra labels to the self-hosted runner, make sure that you create a label that is the same as the actions runner name, i.e. 'actions-runner-1' etc.
 
 ## Install Files and Set Up Project
 1. Clone this project, or the fork of this project if you want to run a self-hosted runner.
