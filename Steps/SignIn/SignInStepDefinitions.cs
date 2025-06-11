@@ -29,5 +29,12 @@ namespace TestingToolshopDemoWithSelenium.Steps.SignIn
 
             Assert.That(Driver.FindElement(By.XPath("//h1[contains(text(), 'Sales over the years')]")).Displayed, Is.True);
         }
+
+        [Then("I am taken to the account dashboard")]
+        public void ThenIAmTakenToTheAccountDashboard()
+        {
+            throw new PendingStepException();
+        }
+
     }
 }
