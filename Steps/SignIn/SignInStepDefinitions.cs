@@ -1,3 +1,5 @@
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using Reqnroll;
 using TestingToolshopDemoWithSelenium.Pages;
 
@@ -21,7 +23,11 @@ namespace TestingToolshopDemoWithSelenium.Steps.SignIn
         [Then("I am taken to the admin dashboard")]
         public void ThenIAmTakenToTheAdminDashboard()
         {
-            throw new PendingStepException();
+            // Explicit wait for the admin dashboard to load
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Driver.FindElement(By.XPath("//h1[contains(text(), 'Sales over the years')]")).Displayed);
+
+            Assert.That(Driver.FindElement(By.XPath("//h1[contains(text(), 'Sales over the years')]")).Displayed, Is.True);
         }
     }
 }
