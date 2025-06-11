@@ -14,3 +14,15 @@ Scenario Outline: As an admin, I enter my email address and password and I am ta
 Examples: 
 	| email                             | password  |
 	| admin@practicesoftwaretesting.com | welcome01 |
+
+@happy
+Scenario Outline: As a regular user, I enter my email address and password and I am taken to my account dashboard
+	Given I am on the sign in page
+	When I fill out the sign in form with the following information:
+		| Email   | Password   |
+		| <email> | <password> |
+	And I click on the "Login" button
+	Then I am taken to the account dashboard
+Examples: 
+	| email                                | password  |
+	| customer@practicesoftwaretesting.com | welcome01 |
