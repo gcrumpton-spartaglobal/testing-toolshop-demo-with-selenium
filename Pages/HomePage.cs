@@ -4,6 +4,8 @@ namespace TestingToolshopDemoWithSelenium.Pages
 {
     public class HomePage(IWebDriver driver) : WebPage(driver)
     {
+        public IWebElement NavBarSignIn => driver.FindElement(By.XPath("//a[@class='nav-link' and @data-test='nav-sign-in']"));
+
         public void GoToHomePage()
         {
             driver.Navigate().GoToUrl(BaseUrl);
@@ -27,6 +29,21 @@ namespace TestingToolshopDemoWithSelenium.Pages
             }
 
             return cardTitles;
+        }
+
+        public void Checkout()
+        {
+            CartIcon.Click();
+        }
+
+        public void ClickOnNavBarLink(string navBarWebPage)
+        {
+            switch (navBarWebPage)
+            {
+                case "Sign In":
+                    NavBarSignIn.Click();
+                    break;
+            }
         }
     }
 }

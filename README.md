@@ -1,5 +1,21 @@
 # Testing Toolshop Demo With Selenium
+
 This repo contains a Selenium testing framework for the website https://practicesoftwaretesting.com/.
+
+<br>
+
+# Tech Stack
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f0328110-7406-4a08-acc4-ff56f8092d58" height="100" hspace="25">
+  <img src="https://github.com/user-attachments/assets/07b1348a-a9a1-4e61-b249-c17ead8fe4a8" height="80" hspace="25">
+  <img src="https://github.com/user-attachments/assets/b4210efd-173e-4766-a309-c8e7dd88f095" height="100" hspace="25">
+  <img src="https://github.com/user-attachments/assets/dbd7c7af-d708-4a1b-a997-130ad25f9085" height="100" hspace="25">
+  <img src="https://github.com/user-attachments/assets/eb1f2510-cb34-4173-8084-5a5233dbdb16" height="100" hspace="25">
+  <img src="https://github.com/user-attachments/assets/d02dd624-8016-4379-a565-9d0f6d922ddf" height="100" hspace="25">
+  <img src="https://github.com/user-attachments/assets/27bd96e7-f389-4c28-86d2-4c3ea81daec1" height="100" hspace="25">
+</p>
+
+<br>
 
 # Installation Instructions
 ## Prerequisites
