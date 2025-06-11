@@ -29,7 +29,7 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
         {
             // Explicit wait for the form sent message to be displayed
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            wait.Until(drv => Page.ContactPage.FormSentMessage.Displayed);
+            wait.Until(d => Page.ContactPage.FormSentMessage.Displayed);
 
             Assert.That(Page.ContactPage.FormSentMessage.Displayed, Is.True);
         }
@@ -37,6 +37,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
         [Then("I receive an error message for each field on the contact form")]
         public void ThenIReceiveAnErrorMessageForEachFieldOnTheContactForm()
         {
+            // Explicit wait for at least one error message to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Page.ContactPage.FirstNameErrorMessage.Displayed);
+
             Assert.Multiple(() =>
             {
                 Assert.That(Page.ContactPage.FirstNameErrorMessage.Displayed, Is.True, "First Name error message is not displayed");
@@ -56,25 +60,25 @@ namespace TestingToolshopDemoWithSelenium.Steps.SendContactForm
             // Perform BVA
             if (contactForm.Message.Length == 0)
             {                
-                wait.Until(drv => Page.ContactPage.MessageIsRequiredErrorMessage.Displayed);
+                wait.Until(d => Page.ContactPage.MessageIsRequiredErrorMessage.Displayed);
 
                 Assert.That(Page.ContactPage.MessageIsRequiredErrorMessage.Displayed, Is.True);
             }
             else if (contactForm.Message.Length >= 1 && contactForm.Message.Length <= 49)
             {
-                wait.Until(drv => Page.ContactPage.MessageIsTooShortErrorMessage.Displayed);
+                wait.Until(d => Page.ContactPage.MessageIsTooShortErrorMessage.Displayed);
 
                 Assert.That(Page.ContactPage.MessageIsTooShortErrorMessage.Displayed, Is.True);
             }
             else if (contactForm.Message.Length >= 50 && contactForm.Message.Length <= 250)
             {
-                wait.Until(drv => Page.ContactPage.FormSentMessage.Displayed);
+                wait.Until(d => Page.ContactPage.FormSentMessage.Displayed);
 
                 Assert.That(Page.ContactPage.FormSentMessage.Displayed, Is.True);
             }
             else if (contactForm.Message.Length > 250)
             {
-                wait.Until(drv => Page.ContactPage.MessageIsTooLongErrorMessage.Displayed);
+                wait.Until(d => Page.ContactPage.MessageIsTooLongErrorMessage.Displayed);
 
                 Assert.That(Page.ContactPage.MessageIsTooLongErrorMessage.Displayed, Is.True);
             }

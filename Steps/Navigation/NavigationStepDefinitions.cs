@@ -68,6 +68,10 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [When("I click {string} in the nav bar")]
         public void WhenIClickInTheNavBar(string navBarWebPage)
         {
+            // Explicit wait for the nav bar link to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Page.HomePage.NavBarSignIn.Displayed);
+
             Page.HomePage.ClickOnNavBarLink(navBarWebPage);
         }
 

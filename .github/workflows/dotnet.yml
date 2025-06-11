@@ -7,7 +7,9 @@ on:
  push:  
    branches: [ "dev" ]  
  pull_request:  
-   branches: [ "dev" ]  
+   branches: [ "dev" ]
+ workflow_dispatch:
+
 
 jobs:  
  set-up-containers:  
@@ -37,8 +39,11 @@ jobs:
      with:  
        dotnet-version: 8.0.x  
 
- build-and-test:
-   runs-on: self-hosted
+ build-and-test-chrome:
+   runs-on: [self-hosted, actions-runner-1]
+
+   env:
+     TEST_BROWSER: chrome
 
    needs: set-up-dotnet
 
@@ -51,13 +56,56 @@ jobs:
    - name: Build  
      run: dotnet build --no-restore  
 
-   - name: Test  
+   - name: Run tests on Chrome  
+     run: dotnet test --no-build --verbosity normal  
+
+ build-and-test-firefox:
+   runs-on: [self-hosted, actions-runner-2]
+
+   env:
+     TEST_BROWSER: firefox
+
+   needs: set-up-dotnet
+
+   steps:
+   - uses: actions/checkout@v4
+     
+   - name: Restore dependencies  
+     run: dotnet restore  
+
+   - name: Build  
+     run: dotnet build --no-restore  
+
+   - name: Run tests on Firefox  
+     run: dotnet test --no-build --verbosity normal  
+
+ build-and-test-edge:
+   runs-on: [self-hosted, actions-runner-3]
+
+   env:
+     TEST_BROWSER: edge
+
+   needs: set-up-dotnet
+
+   steps:
+   - uses: actions/checkout@v4
+     
+   - name: Restore dependencies  
+     run: dotnet restore  
+
+   - name: Build  
+     run: dotnet build --no-restore  
+
+   - name: Run tests on Edge  
      run: dotnet test --no-build --verbosity normal  
 
  stop-containers:
    runs-on: self-hosted
 
-   needs: build-and-test
+   needs:
+     - build-and-test-chrome
+     - build-and-test-firefox
+     - build-and-test-edge
 
    steps:
    - uses: actions/checkout@v4

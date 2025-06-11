@@ -1,7 +1,6 @@
 using System;
 using Reqnroll;
 using TestingToolshopDemoWithSelenium.Pages;
-using TestingToolshopDemoWithSelenium.Steps.Navigation;
 
 namespace TestingToolshopDemoWithSelenium.Steps
 {
@@ -13,6 +12,8 @@ namespace TestingToolshopDemoWithSelenium.Steps
         [BeforeScenario]
         public void BeforeScenario()
         {
+            // Set browser from environment variable, tag, or default
+            Browser = Environment.GetEnvironmentVariable("TEST_BROWSER") ?? "chrome";
             SetUp();
         }
 

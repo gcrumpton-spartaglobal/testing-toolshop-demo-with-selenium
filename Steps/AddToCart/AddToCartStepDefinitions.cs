@@ -54,7 +54,17 @@ namespace TestingToolshopDemoWithSelenium.Steps.AddToCart
             Page.CheckoutPage = new CheckoutPage(Driver);
 
             // Wait for the page to load
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
+
+            // Fluent wait for the checkout page to load
+            WebDriverWait fluentWait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60))
+            {
+                PollingInterval = TimeSpan.FromMilliseconds(500),
+            };
+
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
+
+            fluentWait.Until(d => Page.CheckoutPage.ItemNames().Count == 2);
 
             var actualItemNames = Page.CheckoutPage.ItemNames();
             var expectedItemNames = new List<string> { "Claw Hammer", "Pliers" };
