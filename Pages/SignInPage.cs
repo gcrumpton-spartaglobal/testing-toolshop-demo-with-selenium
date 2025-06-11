@@ -13,6 +13,10 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement GoogleSignInButton => driver.FindElement(By.ClassName("google-sign-in-button"));
         #endregion
 
+        #region ErrorMessages
+        public IWebElement EmailErrorMessage => driver.FindElement(By.Id("email-error"));
+        #endregion
+
         public void GoToSignInPage()
         {
             driver.Navigate().GoToUrl(BaseUrl + "auth/login");
