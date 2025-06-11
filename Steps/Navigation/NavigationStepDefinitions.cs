@@ -34,7 +34,9 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
         [Given("I am on the sign in page")]
         public void GivenIAmOnTheSignInPage()
         {
-            throw new PendingStepException();
+            Page.SignInPage = new SignInPage(Driver);
+
+            Page.SignInPage.GoToSignInPage();
         }
 
         [When("I scroll to the {string} product")]
