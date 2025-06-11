@@ -15,6 +15,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
 
         #region ErrorMessages
         public IWebElement EmailErrorMessage => driver.FindElement(By.Id("email-error"));
+        public IWebElement PasswordErrorMessage => driver.FindElement(By.Id("password-error"));
         #endregion
 
         public void GoToSignInPage()
