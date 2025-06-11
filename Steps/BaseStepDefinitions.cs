@@ -41,7 +41,11 @@ namespace TestingToolshopDemoWithSelenium.Steps
                     throw new ArgumentException($"Unsupported browser: {Browser}");
             }
 
-            Driver = new RemoteWebDriver(GridUrl, _driverOptions.ToCapabilities());
+            Driver = new RemoteWebDriver(
+                GridUrl, 
+                _driverOptions.ToCapabilities(),
+                TimeSpan.FromSeconds(180)
+                );
             Driver.Manage().Window.Maximize();
         }
 
