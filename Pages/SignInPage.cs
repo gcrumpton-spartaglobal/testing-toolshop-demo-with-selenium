@@ -11,6 +11,7 @@ namespace TestingToolshopDemoWithSelenium.Pages
         public IWebElement EmailInput => driver.FindElement(By.Id("email"));
         public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
         public IWebElement GoogleSignInButton => driver.FindElement(By.ClassName("google-sign-in-button"));
+        public IWebElement LoginButton => driver.FindElement(By.XPath("//input[@data-test='login-submit']"));
         #endregion
 
         #region ErrorMessages
