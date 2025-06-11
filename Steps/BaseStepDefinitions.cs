@@ -44,7 +44,7 @@ namespace TestingToolshopDemoWithSelenium.Steps
             Driver = new RemoteWebDriver(
                 GridUrl, 
                 _driverOptions.ToCapabilities(),
-                TimeSpan.FromSeconds(180)
+                TimeSpan.FromMinutes(3)
                 );
             Driver.Manage().Window.Maximize();
         }
