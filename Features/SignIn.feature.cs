@@ -125,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
  await testRunner.WhenAsync("I fill out the sign in form with the following information:", ((string)(null)), table8, "When ");
 #line hidden
 #line 12
- await testRunner.AndAsync("I click \"Login\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I click on the \"Login\" button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 13
  await testRunner.ThenAsync("I am taken to the admin dashboard", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

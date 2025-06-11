@@ -100,6 +100,17 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
                 // Click the send button
                 Page.ContactPage.SendButton.Click();
             }
+
+            else if (buttonText == "Login")
+            {
+                //Page.SignInPage = new SignInPage(Driver);
+                // Click the sign in button
+                Page.SignInPage.LoginButton.Click();
+            }
+            else
+            {
+                throw new ArgumentException($"Button '{buttonText}' is not recognized.");
+            }
         }
 
         [Then("I am taken to the sign in page")]

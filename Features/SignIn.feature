@@ -9,7 +9,7 @@ Scenario Outline: As an admin, I enter my email address and password and I am ta
 	When I fill out the sign in form with the following information:
 		| Email   | Password   |
 		| <email> | <password> |
-	And I click "Login"
+	And I click on the "Login" button
 	Then I am taken to the admin dashboard
 Examples: 
 	| email                             | password  |
