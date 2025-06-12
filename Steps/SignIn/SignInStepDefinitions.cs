@@ -40,5 +40,18 @@ namespace TestingToolshopDemoWithSelenium.Steps.SignIn
             Assert.That(Driver.FindElement(By.XPath("//h1[contains(text(), 'My account')]")).Displayed, Is.True);
         }
 
+        [Then("I receive an error message for the email and password fields")]
+        public void ThenIReceiveAnErrorMessageForTheEmailAndPasswordFields()
+        {
+            // Explicit wait for the error messages to be displayed
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(d => Page.SignInPage.EmailErrorMessage.Displayed && Page.SignInPage.PasswordErrorMessage.Displayed);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(Page.SignInPage.EmailErrorMessage.Displayed, Is.True, "Email error message is not displayed");
+                Assert.That(Page.SignInPage.PasswordErrorMessage.Displayed, Is.True, "Password error message is not displayed");
+            });
+        }
     }
 }
