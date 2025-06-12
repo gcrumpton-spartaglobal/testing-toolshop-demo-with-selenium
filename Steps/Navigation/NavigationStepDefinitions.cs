@@ -31,6 +31,13 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
             Page.ContactPage.GoToContactPage();
         }
 
+        [Given("I am on the sign in page")]
+        public void GivenIAmOnTheSignInPage()
+        {
+            Page.SignInPage = new SignInPage(Driver);
+
+            Page.SignInPage.GoToSignInPage();
+        }
 
         [When("I scroll to the {string} product")]
         public void WhenIScrollToTheProduct(string productName)
@@ -92,6 +99,17 @@ namespace TestingToolshopDemoWithSelenium.Steps.Navigation
 
                 // Click the send button
                 Page.ContactPage.SendButton.Click();
+            }
+
+            else if (buttonText == "Login")
+            {
+                //Page.SignInPage = new SignInPage(Driver);
+                // Click the sign in button
+                Page.SignInPage.LoginButton.Click();
+            }
+            else
+            {
+                throw new ArgumentException($"Button '{buttonText}' is not recognized.");
             }
         }
 
